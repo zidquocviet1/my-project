@@ -1,0 +1,14 @@
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\bin\Debug\QuanLyBanHang.exe
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\bin\Debug\QuanLyBanHang.exe.config
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fLogin.resources
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fMain.resources
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fNhanVien.resources
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.Properties.Resources.resources
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.csproj.GenerateResource.cache
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.csproj.CoreCompileInputs.cache
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.exe
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.pdb
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.csprojAssemblyReference.cache
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\bin\Debug\QuanLyBanHang.pdb
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fHangHoa.resources
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fKhachHang.resources
