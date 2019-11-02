@@ -51,10 +51,9 @@ namespace QuanLyBanHang
         
         private void Label4_Click(object sender, EventArgs e)
         {
-            //fRegister register = new fRegister();
-            //this.Hide();
-            //register.ShowDialog();
-
+            fRegister register = new fRegister();
+            this.Hide();
+            register.ShowDialog();
         }
 
         private void PictureBox5_Click(object sender, EventArgs e)

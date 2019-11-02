@@ -8,28 +8,31 @@ using System.Threading.Tasks;
 
 namespace QuanLyBanHang.DAO
 {
-    public class NhanVienDAO
+    public class KhachHangDAO
     {
-        private static NhanVienDAO instance;
+        private static KhachHangDAO instance;
 
-        public static NhanVienDAO Instance
+        public static KhachHangDAO Instance
         {
-            get { if (instance == null) instance = new NhanVienDAO(); return instance; }
+            get { if (instance == null) instance = new KhachHangDAO(); return instance; }
             private set => instance = value;
         }
 
-        private NhanVienDAO() { }
+        private KhachHangDAO() { }
 
         private string STRconn = "Data Source=MAIVIET;Initial Catalog=QuanLyBanHang;Integrated Security=True";
         private SqlConnection conn;
 
-        public DataTable LoadEmployeeList(string query)
+        public DataTable LoadCustomerList(string query)
         {
             DataTable db = new DataTable();
             conn = new SqlConnection(STRconn);
+
             conn.Open();
+
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
             adapter.Fill(db);
             conn.Close();
 
@@ -42,10 +45,10 @@ namespace QuanLyBanHang.DAO
             conn.Open();
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddRange(parameters);
+            conn.Close();
 
             int status = cmd.ExecuteNonQuery();
             return status;
         }
-
     }
 }
