@@ -49,6 +49,7 @@ namespace QuanLyBanHang
             dgvEmployee.Columns[5].HeaderText = "Điện Thoại";
             dgvEmployee.Columns[6].HeaderText = "Lương";
             dgvEmployee.Columns[7].HeaderText = "Phụ Cấp";
+            dgvEmployee.Columns[8].HeaderText = "Giới Tính";
         }
 
         private void DgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -58,6 +59,7 @@ namespace QuanLyBanHang
             btnDelete.Enabled = true;
             btnAdd.Enabled = false;
             btnUnSelect.Enabled = true;
+            btnEdit.Enabled = true;
         }
         private void ChangeState(int index)
         {
@@ -69,7 +71,7 @@ namespace QuanLyBanHang
             DateTime dayOfWork = Convert.ToDateTime(row.Cells[3].Value);
             String address = Convert.ToString(row.Cells[4].Value);
             String phonenumber = Convert.ToString(row.Cells[5].Value);
-            int salary = Convert.ToInt32(row.Cells[6].Value);
+            long salary = Convert.ToInt64(row.Cells[6].Value);
             int bonus = Convert.ToInt32(row.Cells[7].Value);
             bool isMale = Convert.ToBoolean(row.Cells[8].Value);
 
@@ -87,7 +89,6 @@ namespace QuanLyBanHang
 
         private NhanVien getInfo()
         {
-            int id = Convert.ToInt32(txtID.Text);
             string address = cbAddress.Text;
             bool isMale = true ? radMale.Checked : false;
             string name = txtName.Text;
@@ -97,7 +98,7 @@ namespace QuanLyBanHang
             double salary = Convert.ToDouble(mskSalary.Text);
             int bonus = Convert.ToInt32(cbOTMoney.Text);
 
-            NhanVien nv = new NhanVien(id,name, isMale, birthDay, dayOfWork, address, phoneNumber, salary, bonus);
+            NhanVien nv = new NhanVien(name, isMale, birthDay, dayOfWork, address, phoneNumber, salary, bonus);
             return nv;
         }
 
@@ -112,8 +113,8 @@ namespace QuanLyBanHang
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            NhanVien nv = getInfo();
-            if (nhanvien.DelEmployee(nv.id) > 0)
+            int id = Convert.ToInt32(txtID.Text);
+            if (nhanvien.DelEmployee(id) > 0)
             {
                 LoadData();
                 Clear();
@@ -134,6 +135,7 @@ namespace QuanLyBanHang
             btnDelete.Enabled = false;
             btnAdd.Enabled = true;
             btnUnSelect.Enabled = false;
+            btnEdit.Enabled = false;
             dgvEmployee.ClearSelection();
         }
 
@@ -145,7 +147,8 @@ namespace QuanLyBanHang
         private void BtnEdit_Click(object sender, EventArgs e)
         {
             NhanVien nv = getInfo();
-            if (nhanvien.EditEmployee(nv) > 0)
+            int id = Convert.ToInt32(txtID.Text);
+            if (nhanvien.EditEmployee(nv, id) > 0)
             {
                 LoadData();
             }

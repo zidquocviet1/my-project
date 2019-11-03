@@ -156,7 +156,7 @@
             this.txtName.Location = new System.Drawing.Point(329, 60);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(139, 20);
-            this.txtName.TabIndex = 9;
+            this.txtName.TabIndex = 4;
             // 
             // radMale
             // 
@@ -164,7 +164,7 @@
             this.radMale.Location = new System.Drawing.Point(107, 129);
             this.radMale.Name = "radMale";
             this.radMale.Size = new System.Drawing.Size(47, 17);
-            this.radMale.TabIndex = 10;
+            this.radMale.TabIndex = 2;
             this.radMale.TabStop = true;
             this.radMale.Text = "Nam";
             this.radMale.UseVisualStyleBackColor = true;
@@ -175,7 +175,7 @@
             this.radFemale.Location = new System.Drawing.Point(183, 129);
             this.radFemale.Name = "radFemale";
             this.radFemale.Size = new System.Drawing.Size(39, 17);
-            this.radFemale.TabIndex = 11;
+            this.radFemale.TabIndex = 3;
             this.radFemale.TabStop = true;
             this.radFemale.Text = "Nữ";
             this.radFemale.UseVisualStyleBackColor = true;
@@ -185,7 +185,7 @@
             this.dgvEmployee.AllowUserToAddRows = false;
             this.dgvEmployee.AllowUserToDeleteRows = false;
             this.dgvEmployee.AllowUserToOrderColumns = true;
-            this.dgvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmployee.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployee.Location = new System.Drawing.Point(12, 162);
@@ -201,7 +201,7 @@
             this.btnAdd.Location = new System.Drawing.Point(309, 367);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 46);
-            this.btnAdd.TabIndex = 16;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
@@ -211,7 +211,7 @@
             this.btnDelete.Location = new System.Drawing.Point(390, 367);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 46);
-            this.btnDelete.TabIndex = 17;
+            this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
@@ -221,7 +221,7 @@
             this.btnEdit.Location = new System.Drawing.Point(471, 367);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 46);
-            this.btnEdit.TabIndex = 18;
+            this.btnEdit.TabIndex = 12;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
@@ -232,7 +232,7 @@
             this.btnUnSelect.Location = new System.Drawing.Point(550, 367);
             this.btnUnSelect.Name = "btnUnSelect";
             this.btnUnSelect.Size = new System.Drawing.Size(75, 46);
-            this.btnUnSelect.TabIndex = 19;
+            this.btnUnSelect.TabIndex = 13;
             this.btnUnSelect.Text = "Hủy";
             this.btnUnSelect.UseVisualStyleBackColor = true;
             this.btnUnSelect.Click += new System.EventHandler(this.BtnUnSelect_Click);
@@ -240,10 +240,11 @@
             // btnClose
             // 
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Location = new System.Drawing.Point(631, 367);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 46);
-            this.btnClose.TabIndex = 64;
+            this.btnClose.TabIndex = 14;
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.Button3_Click);
@@ -254,7 +255,7 @@
             this.dtpBirthday.Location = new System.Drawing.Point(329, 94);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(139, 20);
-            this.dtpBirthday.TabIndex = 65;
+            this.dtpBirthday.TabIndex = 5;
             this.dtpBirthday.Value = new System.DateTime(2019, 10, 5, 21, 36, 0, 0);
             // 
             // label6
@@ -274,7 +275,7 @@
             this.dtpWorkDay.Location = new System.Drawing.Point(329, 129);
             this.dtpWorkDay.Name = "dtpWorkDay";
             this.dtpWorkDay.Size = new System.Drawing.Size(139, 20);
-            this.dtpWorkDay.TabIndex = 67;
+            this.dtpWorkDay.TabIndex = 6;
             this.dtpWorkDay.Value = new System.DateTime(2019, 10, 5, 21, 36, 0, 0);
             // 
             // label9
@@ -301,10 +302,12 @@
             // 
             // cbOTMoney
             // 
+            this.cbOTMoney.DropDownHeight = 70;
             this.cbOTMoney.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbOTMoney.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbOTMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbOTMoney.FormatString = "%";
             this.cbOTMoney.FormattingEnabled = true;
+            this.cbOTMoney.IntegralHeight = false;
             this.cbOTMoney.Items.AddRange(new object[] {
             "0",
             "5",
@@ -330,7 +333,7 @@
             this.cbOTMoney.Location = new System.Drawing.Point(567, 128);
             this.cbOTMoney.Name = "cbOTMoney";
             this.cbOTMoney.Size = new System.Drawing.Size(139, 21);
-            this.cbOTMoney.TabIndex = 71;
+            this.cbOTMoney.TabIndex = 9;
             // 
             // mskPhoneNumber
             // 
@@ -338,12 +341,14 @@
             this.mskPhoneNumber.Mask = "000-0000000";
             this.mskPhoneNumber.Name = "mskPhoneNumber";
             this.mskPhoneNumber.Size = new System.Drawing.Size(139, 20);
-            this.mskPhoneNumber.TabIndex = 72;
+            this.mskPhoneNumber.TabIndex = 7;
             // 
             // cbAddress
             // 
+            this.cbAddress.DropDownHeight = 70;
             this.cbAddress.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAddress.FormattingEnabled = true;
+            this.cbAddress.IntegralHeight = false;
             this.cbAddress.Items.AddRange(new object[] {
             "Tiền Giang",
             "TP HCM",
@@ -356,19 +361,20 @@
             this.cbAddress.Location = new System.Drawing.Point(107, 92);
             this.cbAddress.Name = "cbAddress";
             this.cbAddress.Size = new System.Drawing.Size(115, 21);
-            this.cbAddress.TabIndex = 73;
+            this.cbAddress.TabIndex = 1;
             // 
             // mskSalary
             // 
             this.mskSalary.Location = new System.Drawing.Point(567, 94);
             this.mskSalary.Name = "mskSalary";
-            this.mskSalary.Size = new System.Drawing.Size(142, 20);
-            this.mskSalary.TabIndex = 74;
+            this.mskSalary.Size = new System.Drawing.Size(139, 20);
+            this.mskSalary.TabIndex = 8;
             // 
             // fNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(718, 425);
             this.Controls.Add(this.mskSalary);
             this.Controls.Add(this.cbAddress);

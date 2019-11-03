@@ -8,9 +8,8 @@ namespace QuanLyBanHang.DTO
 {
     public class NhanVien
     {
-        public NhanVien(int id, string name, bool gender, DateTime birthDay, DateTime startDay, string address, string phoneNumber, double salary, int bonus)
+        public NhanVien(string name, bool gender, DateTime birthDay, DateTime startDay, string address, string phoneNumber, double salary, int bonus)
         {
-            this.id = id;
             this.name = name;
             this.gender = gender;
             this.birthDay = birthDay;

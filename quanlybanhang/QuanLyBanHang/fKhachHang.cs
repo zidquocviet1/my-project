@@ -43,11 +43,13 @@ namespace QuanLyBanHang
 
             txtID.Text = id;
             txtName.Text = name;
+            cbNameOfOrders.Text = nameOfOrders;
             cbAddress.Text = address;
             txtEmail.Text = email;
             radMale.Checked = isMale;
             radFemale.Checked = !isMale;
             mskPhoneNumber.Text = phonenumber;
+            txtFax.Text = fax;
         }
 
         private void ChangeHeader()
@@ -67,13 +69,16 @@ namespace QuanLyBanHang
             txtID.Text = "";
             txtEmail.Text = "";
             cbAddress.Text = null;
+            cbNameOfOrders.Text = null;
             radFemale.Checked = false;
             radMale.Checked = false;
             txtName.Text = "";
             mskPhoneNumber.Text = "";
+            txtFax.Text = "";
             btnDelete.Enabled = false;
             btnAdd.Enabled = true;
             btnUnSelect.Enabled = false;
+            btnEdit.Enabled = false;
             dgvCustomer.ClearSelection();
         }
 
@@ -99,14 +104,57 @@ namespace QuanLyBanHang
             btnDelete.Enabled = true;
             btnAdd.Enabled = false;
             btnUnSelect.Enabled = true;
+            btnEdit.Enabled = true;
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            
+            KhachHang kh = getInfo();
+            khachHang = new KhachHangBUS();
+            int id = Convert.ToInt32(txtID.Text);
+
+            if (khachHang.EditCustomer(kh, id) > 0)
+            {
+                LoadData();
+            }
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            khachHang = new KhachHangBUS();
+
+            if (khachHang.AddCustomer(getInfo()) > 0)
+            {
+                LoadData();
+            }
+        }
+
+        private KhachHang getInfo()
+        {
+            string name = txtName.Text;
+            string nameOfOrders = cbNameOfOrders.Text;
+            bool isMale = true ? radMale.Checked : false;
+            string address = cbAddress.Text;
+            string email = txtEmail.Text;
+            string phoneNumber = mskPhoneNumber.Text;
+            string fax = txtFax.Text;
+
+            KhachHang kh = new KhachHang(name,nameOfOrders,email,address,phoneNumber,fax,isMale);
+            return kh;
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            khachHang = new KhachHangBUS();
+            int id = Convert.ToInt32(txtID.Text);
+
+            if (khachHang.DelCustomer(id) > 0)
+            {
+                LoadData();
+            }
+        }
+
+        private void CbNameOfOrders_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

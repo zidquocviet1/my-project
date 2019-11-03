@@ -45,9 +45,9 @@ namespace QuanLyBanHang.DAO
             conn.Open();
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddRange(parameters);
-            conn.Close();
 
             int status = cmd.ExecuteNonQuery();
+            conn.Close();
             return status;
         }
     }

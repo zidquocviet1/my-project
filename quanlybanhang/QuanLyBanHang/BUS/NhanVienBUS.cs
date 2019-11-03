@@ -49,11 +49,11 @@ namespace QuanLyBanHang.BUS
             int status = NhanVienDAO.Instance.ExecuteNonQuery(query, parameters);
             return status;
         }
-        public int EditEmployee(DTO.NhanVien E)
+        public int EditEmployee(DTO.NhanVien E, int id)
         {
             string query = "USP_Update @id, @ten, @ngay_sinh, @ngay_lam_viec, @dia_chi, @dien_thoai, @luong, @phu_cap, @gioi_tinh";
 
-            SqlParameter para0 = new SqlParameter("@id", E.id);
+            SqlParameter para0 = new SqlParameter("@id", id);
             SqlParameter para1 = new SqlParameter("@ten", E.name);
             SqlParameter para2 = new SqlParameter("@ngay_sinh", E.birthDay);
             SqlParameter para3 = new SqlParameter("@ngay_lam_viec", E.startDay);

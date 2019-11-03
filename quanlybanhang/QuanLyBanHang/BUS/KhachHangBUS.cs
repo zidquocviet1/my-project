@@ -23,16 +23,18 @@ namespace QuanLyBanHang.BUS
 
         public int AddCustomer(DTO.KhachHang C)
         {
-            string query = "insert into khach_hang values(@name,@ten_giao_dich,@dia_chi,@email,@dien_thoai)";
+            string query = "USP_AddCustomer @name,@ten_giao_dich,@dia_chi,@gioi_tinh,@email,@dien_thoai,@fax";
 
             SqlParameter para1 = new SqlParameter("@name", C.name);
             SqlParameter para2 = new SqlParameter("@ten_giao_dich", C.nameOfOrders);
             SqlParameter para3 = new SqlParameter("@dia_chi", C.address);
             SqlParameter para4 = new SqlParameter("@email", C.email);
             SqlParameter para5 = new SqlParameter("@dien_thoai", C.phoneNumber);
+            SqlParameter para6 = new SqlParameter("@fax", C.fax);
+            SqlParameter para7 = new SqlParameter("@gioi_tinh", C.gender);
 
 
-            SqlParameter[] parameters = { para1, para2, para3, para4, para5};
+            SqlParameter[] parameters = { para1, para2, para3, para4, para5, para6, para7};
 
             int status = KhachHangDAO.Instance.ExecuteNonQuery(query, parameters);
             return status;
@@ -48,11 +50,11 @@ namespace QuanLyBanHang.BUS
             int status = KhachHangDAO.Instance.ExecuteNonQuery(query, parameters);
             return status;
         }
-        public int EditEmployee(DTO.KhachHang C)
+        public int EditCustomer(DTO.KhachHang C, int id)
         {
             string query = "USP_UpdateCustomer @id, @ten, @ten_giao_dich, @dia_chi, @email, @dien_thoai, @fax";
 
-            SqlParameter para0 = new SqlParameter("@id", C.id);
+            SqlParameter para0 = new SqlParameter("@id", id);
             SqlParameter para1 = new SqlParameter("@ten", C.name);
             SqlParameter para2 = new SqlParameter("@ten_giao_dich", C.nameOfOrders);
             SqlParameter para3 = new SqlParameter("@dia_chi", C.address);

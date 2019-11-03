@@ -9,9 +9,8 @@ namespace QuanLyBanHang.DTO
     public class KhachHang
     {
 
-        public KhachHang(int id, string name, string nameOfOrders, string email, string address, string phoneNumber, string fax, bool gender)
+        public KhachHang(string name, string nameOfOrders, string email, string address, string phoneNumber, string fax, bool gender)
         {
-            this.id = id;
             this.name = name;
             this.nameOfOrders = nameOfOrders;
             this.email = email;
