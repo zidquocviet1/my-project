@@ -55,11 +55,18 @@ namespace QuanLyBanHang
         private void DgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            ChangeState(index);
-            btnDelete.Enabled = true;
-            btnAdd.Enabled = false;
-            btnUnSelect.Enabled = true;
-            btnEdit.Enabled = true;
+            if (index < 0 || index >= dgvEmployee.RowCount)
+            {
+                return;
+            }
+            else
+            {
+                ChangeState(index);
+                btnDelete.Enabled = true;
+                btnAdd.Enabled = false;
+                btnUnSelect.Enabled = true;
+                btnEdit.Enabled = true;
+            }
         }
         private void ChangeState(int index)
         {
@@ -104,11 +111,19 @@ namespace QuanLyBanHang
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            NhanVien nv = getInfo();
-            if(nhanvien.AddEmployee(nv) > 0)
+            if (IsNullValue())
             {
-                LoadData();
+                MessageBox.Show("Không thể thêm nhân viên với tên rỗng!","Thông Báo",MessageBoxButtons.RetryCancel,MessageBoxIcon.Warning);
             }
+            else
+            {
+                NhanVien nv = getInfo();
+                if (nhanvien.AddEmployee(nv) > 0)
+                {
+                    LoadData();
+                }
+            }
+            
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -152,6 +167,13 @@ namespace QuanLyBanHang
             {
                 LoadData();
             }
+        }
+
+        private bool IsNullValue()
+        {
+            if (txtName.Text.Equals(""))
+                return true;
+            return false;
         }
     }
 }

@@ -14,8 +14,7 @@ namespace QuanLyBanHang
     {
         public fMain()
         {
-            InitializeComponent();
-            
+            InitializeComponent();       
         }
 
         private void NhânViênToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,6 +48,17 @@ namespace QuanLyBanHang
         private void FMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void ĐăngXuấtToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có thật sự muốn đăng xuất không?","Thông Báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                fLogin login = new fLogin();
+                login.Show();
+            }
         }
     }
 }

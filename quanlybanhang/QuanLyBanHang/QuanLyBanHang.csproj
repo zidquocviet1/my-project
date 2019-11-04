@@ -47,12 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\HangHoaBUS.cs" />
     <Compile Include="BUS\KhachHangBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
     <Compile Include="DAO\DataAccess.cs" />
-    <Compile Include="DAO\KhachHangDAO.cs" />
-    <Compile Include="DAO\LoginDAO.cs" />
-    <Compile Include="DAO\NhanVienDAO.cs" />
+    <Compile Include="DTO\HangHoaDTO.cs" />
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
     <Compile Include="DTO\NhanVien.cs" />

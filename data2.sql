@@ -90,8 +90,79 @@ create table nhan_vien
 )
 go
 
-use QuanLyBanHang
-insert into nhan_vien values('Mai Quoc Viet',null,null,'Tien giang','123123123',530.000,1.2)
-select * from dbo.nhan_vien
+
+create procedure USP_AddEmployee
+@name nvarchar(100), @ngay_sinh date, @ngay_lam_viec date,
+@dia_chi nvarchar(100), @dien_thoai nvarchar(20), @luong Money, @gioi_tinh bit
+as
+begin
+	insert into nhan_vien values(@name,@ngay_sinh,@ngay_lam_viec,@dia_chi,@dien_thoai,@luong,@gioi_tinh)
+end
 go
-insert into nhan_vien values(1,'Nguyen Van Long','0','28/07/2000','10/10/2019','TP HCM','0907218732',500000,0.1)
+
+create procedure USP_UpdateCustomer
+@id int,@ten nvarchar(100), @ten_giao_dich nvarchar(100), 
+@dia_chi nvarchar(100), @email nvarchar(100), @dien_thoai nvarchar(20), @fax nvarchar(20)
+as
+begin
+	update khach_hang set ten_cong_ty = @ten, ten_giao_dich = @ten_giao_dich,
+	dia_chi = @dia_chi, email = @email, dien_thoai = @dien_thoai, fax = @fax
+	where id_khach_hang = @id
+end
+go
+
+drop procedure USP_Update
+go
+
+alter table AccountInfo
+add constraint unique_phoneNumber UNIQUE(phonenumber);
+go
+
+select * from nhan_vien
+
+insert into nha_cung_cap values(N'Công ty Mai Qu?c Vi?t', N'Giao Hàng', N'sadf',N'abc@gmail.com', N'012324567', '12354')
+select * from nha_cung_cap
+go
+
+insert into loai_hang values(N'Th?m Ch?i')
+select * from loai_hang
+go
+
+update nhan_vien set ngay_sinh = '11-04-2019' where id_nhan_vien = 43
+
+SET IDENTITY_INSERT mat_hang ON
+insert into mat_hang(ten_hang, id_cong_ty, id_loai_hang, so_luong, don_vi_tinh, gia, image_path) 
+values(N'Bánh Kem',1, 3, 5, N'Cái', 229000, 'E:\ComputerSience_TDT\Software Architecture\DoAn\image\lego.jpg')
+SET IDENTITY_INSERT mat_hang OFF
+
+select * from mat_hang
+
+update mat_hang set gia = 229000
+
+alter table mat_hang
+alter column gia decimal
+
+alter table mat_hang
+check constraint FK_MatHang_LoaiHang
+
+create proc USP_AddCategory
+	@ten_hang nvarchar(100), @id_cong_ty int, @id_loai_hang int, @so_luong int,
+	@don_vi_tinh nvarchar(100), @gia decimal, @image_path nvarchar(1000), @ghi_chu nvarchar(4000)
+as
+begin
+	insert into mat_hang values(@ten_hang, @id_cong_ty, @id_loai_hang, @so_luong, 
+	@don_vi_tinh, @gia, @image_path, @ghi_chu) 
+end
+go
+
+create procedure USP_UpdateCategory
+	@id int, @ten_hang nvarchar(100), @id_cong_ty int, @id_loai_hang int, @so_luong int,
+	@don_vi_tinh nvarchar(100), @gia decimal, @image_path nvarchar(1000), @ghi_chu nvarchar(4000)
+as
+begin
+	update mat_hang set ten_hang = @ten_hang, id_cong_ty = @id_cong_ty,
+	id_loai_hang = @id_loai_hang, so_luong = @so_luong, don_vi_tinh = @don_vi_tinh, gia = @gia,
+	image_path = @image_path, ghi_chu = @ghi_chu
+	where id_khach_hang = @id
+end
+go

@@ -17,7 +17,7 @@ namespace QuanLyBanHang.BUS
             DataTable db = new DataTable();
             string query = "select * from nhan_vien";
 
-            db = NhanVienDAO.Instance.LoadEmployeeList(query);
+            db = DataAccess.Instance.LoadEmployeeList(query);
             return db;
         }
         public int AddEmployee(DTO.NhanVien E)
@@ -35,7 +35,7 @@ namespace QuanLyBanHang.BUS
 
             SqlParameter[] parameters = { para1, para2, para3, para4, para5, para6, para7,para8};
 
-            int status = NhanVienDAO.Instance.ExecuteNonQuery(query, parameters);
+            int status = DataAccess.Instance.ExecuteNonQuery(query, parameters);
             return status;
         }
         public int DelEmployee(int ID)
@@ -46,7 +46,7 @@ namespace QuanLyBanHang.BUS
 
             SqlParameter[] parameters = { para};
 
-            int status = NhanVienDAO.Instance.ExecuteNonQuery(query, parameters);
+            int status = DataAccess.Instance.ExecuteNonQuery(query, parameters);
             return status;
         }
         public int EditEmployee(DTO.NhanVien E, int id)
@@ -65,7 +65,7 @@ namespace QuanLyBanHang.BUS
 
             SqlParameter[] parameters = { para0, para1, para2, para3, para4, para5, para6, para7, para8 };
 
-            int status = NhanVienDAO.Instance.ExecuteNonQuery(query, parameters);
+            int status = DataAccess.Instance.ExecuteNonQuery(query, parameters);
             return status;
         }
 

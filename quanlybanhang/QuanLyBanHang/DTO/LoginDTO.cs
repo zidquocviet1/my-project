@@ -22,7 +22,7 @@ namespace QuanLyBanHang.DTO
 
             string query = "USP_Login @username, @password"; //cau lenh thuc thi store procedure
 
-            status = LoginDAO.Instance.CheckLogin(query, parameters);
+            status = DataAccess.Instance.CheckLogin(query, parameters);
 
             return status;
         }

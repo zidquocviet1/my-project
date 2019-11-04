@@ -22,22 +22,73 @@ namespace QuanLyBanHang.DAO
         private SqlConnection conn;
         private DataAccess() { }
 
-        public DataSet ExecuteQuery(string query, SqlParameter[] parameters)
+        private SqlCommand getCMD(string query)
         {
             conn = new SqlConnection(STRconn);
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddRange(parameters);
-
             conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            return cmd;
+        }
+
+        public DataTable LoadCategoryList(string query)
+        {
+            DataTable db = new DataTable();
+            SqlCommand cmd = getCMD(query);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            adapter.Fill(db);
+            conn.Close();
+
+            return db;
+        }
+
+        public DataTable LoadCustomerList(string query)
+        {
+            DataTable db = new DataTable();
+            SqlCommand cmd = getCMD(query);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            adapter.Fill(db);
+            conn.Close();
+
+            return db;
+        }
+        public DataTable LoadEmployeeList(string query)
+        {
+            DataTable db = new DataTable();
+            SqlCommand cmd = getCMD(query);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(db);
+            conn.Close();
+
+            return db;
+        }
+
+        public int CheckLogin(string query, SqlParameter[] parameters)
+        {
+            int status;
+            SqlCommand cmd = getCMD(query);
+            cmd.Parameters.AddRange(parameters);
 
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
-
             adapter.Fill(ds);
-            conn.Close();
 
-            return ds;
+            conn.Close();
+            status = ds.Tables[0].Rows.Count;
+
+            return status;
         }
- 
+        public int ExecuteNonQuery(string query, SqlParameter[] parameters)
+        {
+            SqlCommand cmd = getCMD(query);
+            cmd.Parameters.AddRange(parameters);
+
+            int status = cmd.ExecuteNonQuery();
+            conn.Close();
+            return status;
+        }
+
     }
 }

@@ -17,7 +17,7 @@ namespace QuanLyBanHang.BUS
         {
             string query = "select * from khach_hang";
 
-            DataTable db = KhachHangDAO.Instance.LoadCustomerList(query);
+            DataTable db = DataAccess.Instance.LoadCustomerList(query);
             return db;
         }
 
@@ -36,7 +36,7 @@ namespace QuanLyBanHang.BUS
 
             SqlParameter[] parameters = { para1, para2, para3, para4, para5, para6, para7};
 
-            int status = KhachHangDAO.Instance.ExecuteNonQuery(query, parameters);
+            int status = DataAccess.Instance.ExecuteNonQuery(query, parameters);
             return status;
         }
         public int DelCustomer(int ID)
@@ -47,7 +47,7 @@ namespace QuanLyBanHang.BUS
 
             SqlParameter[] parameters = { para };
 
-            int status = KhachHangDAO.Instance.ExecuteNonQuery(query, parameters);
+            int status = DataAccess.Instance.ExecuteNonQuery(query, parameters);
             return status;
         }
         public int EditCustomer(DTO.KhachHang C, int id)
@@ -65,7 +65,7 @@ namespace QuanLyBanHang.BUS
 
             SqlParameter[] parameters = { para0, para1, para2, para3, para4, para5, para6};
 
-            int status = KhachHangDAO.Instance.ExecuteNonQuery(query, parameters);
+            int status = DataAccess.Instance.ExecuteNonQuery(query, parameters);
             return status;
         }
     }

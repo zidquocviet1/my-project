@@ -100,11 +100,18 @@ namespace QuanLyBanHang
         private void DgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            ChangeState(index);
-            btnDelete.Enabled = true;
-            btnAdd.Enabled = false;
-            btnUnSelect.Enabled = true;
-            btnEdit.Enabled = true;
+            if (index < 0 || index >= dgvCustomer.RowCount)
+            {
+                return;
+            }
+            else
+            {
+                ChangeState(index);
+                btnDelete.Enabled = true;
+                btnAdd.Enabled = false;
+                btnUnSelect.Enabled = true;
+                btnEdit.Enabled = true;
+            }
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -121,11 +128,17 @@ namespace QuanLyBanHang
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            khachHang = new KhachHangBUS();
-
-            if (khachHang.AddCustomer(getInfo()) > 0)
+            if (IsNullValue())
             {
-                LoadData();
+                MessageBox.Show("Không thể thêm khách hàng với tên rỗng!", "Thông Báo", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                KhachHang kh = getInfo();
+                if (khachHang.AddCustomer(kh) > 0)
+                {
+                    LoadData();
+                }
             }
         }
 
@@ -157,6 +170,13 @@ namespace QuanLyBanHang
         private void CbNameOfOrders_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private bool IsNullValue()
+        {
+            if (txtName.Text.Equals(""))
+                return true;
+            return false;
         }
     }
 }
