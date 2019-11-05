@@ -90,5 +90,28 @@ namespace QuanLyBanHang.DAO
             return status;
         }
 
+        public DataTable ExecuteQuery(string query)
+        {
+            SqlCommand cmd = getCMD(query);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+
+            return data;
+        }
+
+        public bool IsUserNameExist(string query, SqlParameter para)
+        {
+            SqlCommand cmd = getCMD(query);
+            cmd.Parameters.Add(para);
+            DataTable db = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(db);
+
+            if (db.Rows.Count > 0)
+                return true;
+            return false;
+        }
+
     }
 }

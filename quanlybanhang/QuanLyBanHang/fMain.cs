@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyBanHang.BUS;
+using QuanLyBanHang.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,18 +16,15 @@ namespace QuanLyBanHang
     {
         public fMain()
         {
-            InitializeComponent();       
+            InitializeComponent();
+
         }
 
+        #region Events
         private void NhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fNhanVien fnhanvien = new fNhanVien();
             fnhanvien.ShowDialog();
-        }
-
-        private void ĐăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void KháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,7 +41,7 @@ namespace QuanLyBanHang
 
         private void FMain_Load(object sender, EventArgs e)
         {
-
+            LoadHangHoa();
         }
 
         private void FMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -60,5 +59,39 @@ namespace QuanLyBanHang
                 login.Show();
             }
         }
+        private void ThôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fProfile profile = new fProfile();
+            profile.ShowDialog();
+        }
+        #endregion
+
+        #region Methods
+        public void LoadHangHoa()
+        {
+            List<HangHoaDTO> hangHoaList = HangHoaBUS.Instance.LoadHangHoa();
+
+            foreach (HangHoaDTO hangHoa in hangHoaList)
+            {
+                Button btn = new Button() { Width = HangHoaBUS.HangHoaWidth, Height = HangHoaBUS.HangHoaHeight };
+
+                btn.Text = hangHoa.name + Environment.NewLine + hangHoa.gia + Environment.NewLine + hangHoa.ghiChu;
+                btn.Font = new Font("Segoe UI", 11f);
+
+                switch (hangHoa.ghiChu)
+                {
+                    case "Còn hàng":
+                        btn.BackColor = Color.Azure;
+                        break;
+                    default:
+                        btn.BackColor = Color.LightPink;
+                        break;
+                }
+                flpHangHoa.Controls.Add(btn);
+            }
+        }
+        #endregion
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using QuanLyBanHang.DAO;
+using QuanLyBanHang.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,8 +12,17 @@ namespace QuanLyBanHang.BUS
 {
     public class HangHoaBUS
     {
-        public HangHoaBUS() { }
+        private static HangHoaBUS instance;
 
+        public static HangHoaBUS Instance
+        {
+            get { if (instance == null) instance = new HangHoaBUS(); return instance; }
+            private set => instance = value;
+        }
+        private HangHoaBUS() { }
+
+        public static int HangHoaWidth = 100;
+        public static int HangHoaHeight = 100;
         public DataTable LoadData()
         {
             string query = "select * from mat_hang";
@@ -68,6 +78,19 @@ namespace QuanLyBanHang.BUS
 
             int status = DataAccess.Instance.ExecuteNonQuery(query, parameters);
             return status;
+        }
+        public List<HangHoaDTO> LoadHangHoa()
+        {
+            List<HangHoaDTO> hangHoaList = new List<HangHoaDTO>();
+            DataTable data = DataAccess.Instance.ExecuteQuery("USP_LoadHangHoa");
+
+            foreach(DataRow item in data.Rows)
+            {
+                HangHoaDTO hangHoa = new HangHoaDTO(item);
+                hangHoaList.Add(hangHoa);
+            }
+
+            return hangHoaList;
         }
     }
 }

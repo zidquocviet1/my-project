@@ -15,7 +15,7 @@ namespace QuanLyBanHang
 {
     public partial class fHangHoa : Form
     {
-        static HangHoaBUS hangHoaBUS = new HangHoaBUS();
+        fMain main = new fMain();
         public fHangHoa()
         {
             InitializeComponent();
@@ -48,17 +48,17 @@ namespace QuanLyBanHang
             txtIDCongTy.Text = idCongTy;
             nudSoLuong.Value = soLuong;
             cbDonViTinh.Text = donViTinh;
-            txtGiaBan.Text = gia;
+            txtGiaBan.Text = gia;          
             txtImagePath.Text = imagePath;
             txtName.Text = name;
-            pcbImage.Image = new Bitmap(imagePath);
+            if (!imagePath.Equals(""))
+                pcbImage.Image = new Bitmap(imagePath);
             rtbGhiChu.Text = ghiChu;
             
         }
         private void LoadData()
         {
-            HangHoaBUS hangHoa  = new HangHoaBUS();
-            dgvHangHoa.DataSource = hangHoa.LoadData();
+            dgvHangHoa.DataSource = HangHoaBUS.Instance.LoadData();
         }
 
         private void ChangeHeader()
@@ -66,8 +66,8 @@ namespace QuanLyBanHang
             dgvHangHoa.Columns[0].HeaderText = "Mã Mặt Hàng";
             dgvHangHoa.Columns[1].HeaderText = "Tên Mặt Hàng";
             dgvHangHoa.Columns[2].HeaderText = "Mã Công Ty";
-            dgvHangHoa.Columns[4].HeaderText = "Mã Loại Hàng";
-            dgvHangHoa.Columns[3].HeaderText = "Số Lượng";
+            dgvHangHoa.Columns[3].HeaderText = "Mã Loại Hàng";
+            dgvHangHoa.Columns[4].HeaderText = "Số Lượng";
             dgvHangHoa.Columns[5].HeaderText = "Đơn Vị Tính";
             dgvHangHoa.Columns[6].HeaderText = "Giá";
             dgvHangHoa.Columns[7].HeaderText = "Đường Dẫn Ảnh";
@@ -153,14 +153,17 @@ namespace QuanLyBanHang
             {
                 HangHoaDTO hangHoa = getInfo();
 
-                if (hangHoaBUS.AddCategory(hangHoa) > 0)
+
+                if (HangHoaBUS.Instance.AddCategory(hangHoa) > 0)
                 {
+                    main.LoadHangHoa();
                     LoadData();
                 }
             }
         }
         private HangHoaDTO getInfo()
         {
+
             String name = txtName.Text;
             int idCongTy = Convert.ToInt32(txtIDCongTy.Text);
             int idLoaiHang = Convert.ToInt32(txtIDLoaiHang.Text);
@@ -177,8 +180,9 @@ namespace QuanLyBanHang
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txtIDMatHang.Text);
-            if (hangHoaBUS.DelCategory(id) > 0)
+            if (HangHoaBUS.Instance.DelCategory(id) > 0)
             {
+                main.LoadHangHoa();
                 LoadData();
                 Clear();
             }
@@ -188,8 +192,9 @@ namespace QuanLyBanHang
         {
             HangHoaDTO hangHoa = getInfo();
             int id = Convert.ToInt32(txtIDMatHang.Text);
-            if (hangHoaBUS.EditCategory(hangHoa, id) > 0)
+            if (HangHoaBUS.Instance.EditCategory(hangHoa, id) > 0)
             {
+                main.LoadHangHoa();
                 LoadData();
             }
         }

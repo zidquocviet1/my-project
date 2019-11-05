@@ -56,9 +56,20 @@ namespace QuanLyBanHang
             register.ShowDialog();
         }
 
-        private void PictureBox5_Click(object sender, EventArgs e)
+
+        private void CheckBox1_CheckedChanged_1(object sender, EventArgs e)
         {
-            LoginDTO login = new LoginDTO();
+            if (chbLogin.Checked)
+            {
+                Properties.Settings.Default.username = txtUsername.Text;
+                Properties.Settings.Default.password = txtPassword.Text;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            LoginBUS login = new LoginBUS();
 
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
@@ -76,18 +87,49 @@ namespace QuanLyBanHang
             }
             else
             {
-                MessageBox.Show("Ten tai khoan hoac mat khau khong dung","Login Page");
+                MessageBox.Show("Tên tài khoản hoặc mật khẩu không đúng", "Lỗi Đăng Nhập");
             }
-
         }
 
-        private void CheckBox1_CheckedChanged_1(object sender, EventArgs e)
+        private void TxtUsername_Leave(object sender, EventArgs e)
         {
-            if (chbLogin.Checked)
+            String userName = txtUsername.Text;
+            if (userName.Trim().Equals(""))
             {
-                Properties.Settings.Default.username = txtUsername.Text;
-                Properties.Settings.Default.password = txtPassword.Text;
-                Properties.Settings.Default.Save();
+                txtUsername.Text = "User name";
+                txtUsername.ForeColor = Color.DarkGray;
+            }
+        }
+
+        private void TxtUsername_Enter(object sender, EventArgs e)
+        {
+            String userName = txtUsername.Text;
+            if (userName.Trim().Equals("User name"))
+            {
+                txtUsername.Text = "";
+                txtUsername.ForeColor = Color.DarkGray;
+            }
+        }
+
+        private void TxtPassword_Leave(object sender, EventArgs e)
+        {
+            String password = txtPassword.Text;
+            if (password.Trim().Equals(""))
+            {
+                txtPassword.Text = "Password";
+                txtPassword.UseSystemPasswordChar = false;
+                txtPassword.ForeColor = Color.DarkGray;
+            }
+        }
+
+        private void TxtPassword_Enter(object sender, EventArgs e)
+        {
+            String password = txtPassword.Text;
+            if (password.Trim().Equals("Password"))
+            {
+                txtPassword.Text = "";
+                txtPassword.UseSystemPasswordChar = true;
+                txtPassword.ForeColor = Color.DarkGray;
             }
         }
     }

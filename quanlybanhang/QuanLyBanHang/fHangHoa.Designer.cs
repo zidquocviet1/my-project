@@ -224,7 +224,8 @@
             this.cbDonViTinh.Items.AddRange(new object[] {
             "Cái",
             "Thùng",
-            "Bao"});
+            "Bao",
+            "Hộp"});
             this.cbDonViTinh.Location = new System.Drawing.Point(80, 110);
             this.cbDonViTinh.Name = "cbDonViTinh";
             this.cbDonViTinh.Size = new System.Drawing.Size(127, 21);

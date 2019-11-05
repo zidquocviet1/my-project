@@ -13,3 +13,4 @@ E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\bin
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fHangHoa.resources
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fKhachHang.resources
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fRegister.resources
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fProfile.resources

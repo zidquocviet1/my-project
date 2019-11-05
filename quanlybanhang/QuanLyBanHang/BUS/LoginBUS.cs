@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace QuanLyBanHang.DTO
 {
-    public class LoginDTO
+    public class LoginBUS
     {
-        public LoginDTO() { }
+        public LoginBUS() { }
         
         public int CheckLogin(string username, string password)
         {

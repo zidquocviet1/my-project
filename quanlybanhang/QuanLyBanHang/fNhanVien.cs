@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -102,9 +103,8 @@ namespace QuanLyBanHang
             DateTime birthDay = dtpBirthday.Value;
             DateTime dayOfWork = dtpWorkDay.Value;
             string phoneNumber = mskPhoneNumber.Text;
-            double salary = Convert.ToDouble(mskSalary.Text);
             int bonus = Convert.ToInt32(cbOTMoney.Text);
-
+            double salary = Convert.ToDouble(mskSalary.Text);
             NhanVien nv = new NhanVien(name, isMale, birthDay, dayOfWork, address, phoneNumber, salary, bonus);
             return nv;
         }

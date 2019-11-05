@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,21 @@ namespace QuanLyBanHang.DTO
             this.imagePath = imagePath;
             this.ghiChu = ghiChu;
         }
+        public HangHoaDTO(int idMatHang, string name, double gia, string ghiChu)
+        {
+            this.idMatHang = idMatHang;
+            this.name = name;
+            this.gia = gia;
+            this.ghiChu = ghiChu;
+        }
 
+        public HangHoaDTO(DataRow row)
+        {
+            this.idMatHang = (int)row["id_mat_hang"];
+            this.name = (string)row["ten_hang"];
+            this.gia = Convert.ToDouble(row["gia"]);
+            this.ghiChu = row["ghi_chu"].ToString();
+        }
         public int idMatHang { get; set; }
 
         public string name { get; set; }
