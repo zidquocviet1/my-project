@@ -120,7 +120,6 @@
             this.txtFullName.Size = new System.Drawing.Size(205, 19);
             this.txtFullName.TabIndex = 12;
             this.txtFullName.Text = "Enter your full name";
-            this.txtFullName.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             this.txtFullName.Enter += new System.EventHandler(this.TxtFullName_Enter);
             this.txtFullName.Leave += new System.EventHandler(this.TxtFullName_Leave);
             // 
@@ -189,7 +188,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(693, 423);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
+
             // 
             // llLogin
             // 

@@ -14,13 +14,22 @@ namespace QuanLyBanHang
 {
     public partial class fMain : Form
     {
-        public fMain()
+        public fMain(int type)
         {
             InitializeComponent();
-
+            this.type = type;
+            if (type == 1)
+            {
+                menuTaiKhoan.Enabled = false;
+            }
         }
-
+        public int type { get; set; }
         #region Events
+        private void DanhSáchHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fHoaDon hoaDon = new fHoaDon();
+            hoaDon.ShowDialog();
+        }
         private void NhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fNhanVien fnhanvien = new fNhanVien();
@@ -64,6 +73,26 @@ namespace QuanLyBanHang
             fProfile profile = new fProfile();
             profile.ShowDialog();
         }
+
+        private void MenuTaiKhoan_Click(object sender, EventArgs e)
+        {
+            fAccount account = new fAccount();
+            account.ShowDialog();
+        }
+        private void ĐổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fPassword password = new fPassword();
+            password.ShowDialog();
+        }
+        private void GiớiThiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Phần mềm được viết bởi Trương Văn Long và Mai Quốc Việt: " + "51800954", "Thông Tin Sản Phẩm", MessageBoxButtons.OK);
+        }
+
+        private void LiênHệAdminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Liên Hệ Mai Quốc Việt: " + "51800954" + " hoặc Trương Văn Long", "Trợ Giúp", MessageBoxButtons.OK);
+        }
         #endregion
 
         #region Methods
@@ -90,6 +119,9 @@ namespace QuanLyBanHang
                 flpHangHoa.Controls.Add(btn);
             }
         }
+
+
+
         #endregion
 
 

@@ -31,34 +31,12 @@ namespace QuanLyBanHang.DAO
             return cmd;
         }
 
-        public DataTable LoadCategoryList(string query)
+        public DataTable LoadData(string query)
         {
             DataTable db = new DataTable();
             SqlCommand cmd = getCMD(query);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 
-            adapter.Fill(db);
-            conn.Close();
-
-            return db;
-        }
-
-        public DataTable LoadCustomerList(string query)
-        {
-            DataTable db = new DataTable();
-            SqlCommand cmd = getCMD(query);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-
-            adapter.Fill(db);
-            conn.Close();
-
-            return db;
-        }
-        public DataTable LoadEmployeeList(string query)
-        {
-            DataTable db = new DataTable();
-            SqlCommand cmd = getCMD(query);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(db);
             conn.Close();
 
@@ -99,6 +77,16 @@ namespace QuanLyBanHang.DAO
 
             return data;
         }
+        public int getType(string query, SqlParameter para)
+        {
+            SqlCommand cmd = getCMD(query);
+            cmd.Parameters.Add(para);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+
+            return (int)data.Rows[0][0];
+        }
 
         public bool IsUserNameExist(string query, SqlParameter para)
         {
@@ -111,6 +99,16 @@ namespace QuanLyBanHang.DAO
             if (db.Rows.Count > 0)
                 return true;
             return false;
+        }
+        public DataTable searchData(string query, SqlParameter para)
+        {
+            SqlCommand cmd = getCMD(query);
+            cmd.Parameters.Add(para);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+
+            return data;
         }
 
     }

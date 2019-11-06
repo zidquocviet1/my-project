@@ -17,7 +17,7 @@ namespace QuanLyBanHang.BUS
             DataTable db = new DataTable();
             string query = "select * from nhan_vien";
 
-            db = DataAccess.Instance.LoadEmployeeList(query);
+            db = DataAccess.Instance.LoadData(query);
             return db;
         }
         public int AddEmployee(DTO.NhanVien E)

@@ -81,7 +81,7 @@ namespace QuanLyBanHang
 
             if (status == 1)
             {
-                fMain fmain = new fMain();
+                fMain fmain = new fMain(login.getType(txtUsername.Text));
                 this.Hide();
                 fmain.ShowDialog();
             }

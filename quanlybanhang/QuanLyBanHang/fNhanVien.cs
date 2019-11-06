@@ -23,7 +23,7 @@ namespace QuanLyBanHang
             ChangeHeader();
             LoadFirstCell();
         }
-
+        #region Methods
         private void LoadData()
         {
             dgvEmployee.DataSource = nhanvien.LoadEmployeeList();
@@ -52,23 +52,6 @@ namespace QuanLyBanHang
             dgvEmployee.Columns[7].HeaderText = "Phụ Cấp";
             dgvEmployee.Columns[8].HeaderText = "Giới Tính";
         }
-
-        private void DgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int index = e.RowIndex;
-            if (index < 0 || index >= dgvEmployee.RowCount)
-            {
-                return;
-            }
-            else
-            {
-                ChangeState(index);
-                btnDelete.Enabled = true;
-                btnAdd.Enabled = false;
-                btnUnSelect.Enabled = true;
-                btnEdit.Enabled = true;
-            }
-        }
         private void ChangeState(int index)
         {
             DataGridViewRow row = dgvEmployee.Rows[index];
@@ -94,7 +77,6 @@ namespace QuanLyBanHang
             mskPhoneNumber.Text = phonenumber;
             cbOTMoney.Text = bonus.ToString();
         }
-
         private NhanVien getInfo()
         {
             string address = cbAddress.Text;
@@ -105,8 +87,53 @@ namespace QuanLyBanHang
             string phoneNumber = mskPhoneNumber.Text;
             int bonus = Convert.ToInt32(cbOTMoney.Text);
             double salary = Convert.ToDouble(mskSalary.Text);
+
             NhanVien nv = new NhanVien(name, isMale, birthDay, dayOfWork, address, phoneNumber, salary, bonus);
             return nv;
+
+        }
+        private void Clear()
+        {
+            txtID.Text = "";
+            cbAddress.Text = null;
+            radFemale.Checked = false;
+            radMale.Checked = false;
+            txtName.Text = "";
+            dtpBirthday.Value = System.DateTime.Now;
+            dtpWorkDay.Value = DateTime.Now;
+            mskPhoneNumber.Text = "";
+            mskSalary.Text = "";
+            cbOTMoney.Text = null;
+            btnDelete.Enabled = false;
+            btnAdd.Enabled = true;
+            btnUnSelect.Enabled = false;
+            btnEdit.Enabled = false;
+            dgvEmployee.ClearSelection();
+        }
+        private bool IsNullValue()
+        {
+            if (txtName.Text.Equals(""))
+                return true;
+            return false;
+        }
+        #endregion
+
+
+        private void DgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            if (index < 0 || index >= dgvEmployee.RowCount)
+            {
+                return;
+            }
+            else
+            {
+                ChangeState(index);
+                btnDelete.Enabled = true;
+                btnAdd.Enabled = false;
+                btnUnSelect.Enabled = true;
+                btnEdit.Enabled = true;
+            }
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -135,24 +162,7 @@ namespace QuanLyBanHang
                 Clear();
             }
         }
-        private void Clear()
-        {
-            txtID.Text = "";
-            cbAddress.Text = null;
-            radFemale.Checked = false;
-            radMale.Checked = false;
-            txtName.Text = "";
-            dtpBirthday.Value = System.DateTime.Now;
-            dtpWorkDay.Value = DateTime.Now;
-            mskPhoneNumber.Text = "";
-            mskSalary.Text = "";
-            cbOTMoney.Text = null;
-            btnDelete.Enabled = false;
-            btnAdd.Enabled = true;
-            btnUnSelect.Enabled = false;
-            btnEdit.Enabled = false;
-            dgvEmployee.ClearSelection();
-        }
+        
 
         private void BtnUnSelect_Click(object sender, EventArgs e)
         {
@@ -169,11 +179,6 @@ namespace QuanLyBanHang
             }
         }
 
-        private bool IsNullValue()
-        {
-            if (txtName.Text.Equals(""))
-                return true;
-            return false;
-        }
+       
     }
 }

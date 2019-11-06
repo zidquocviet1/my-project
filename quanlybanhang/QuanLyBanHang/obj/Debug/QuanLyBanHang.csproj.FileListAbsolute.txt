@@ -14,3 +14,6 @@ E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fKhachHang.resources
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fRegister.resources
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fProfile.resources
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fAccount.resources
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fPassword.resources
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fHoaDon.resources

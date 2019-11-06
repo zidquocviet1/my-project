@@ -15,7 +15,6 @@ namespace QuanLyBanHang
 {
     public partial class fHangHoa : Form
     {
-        fMain main = new fMain();
         public fHangHoa()
         {
             InitializeComponent();
@@ -78,10 +77,6 @@ namespace QuanLyBanHang
             this.Close();
         }
 
-        private void FolderBrowserDialog1_HelpRequest(object sender, EventArgs e)
-        {
-            
-        }
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
@@ -156,7 +151,6 @@ namespace QuanLyBanHang
 
                 if (HangHoaBUS.Instance.AddCategory(hangHoa) > 0)
                 {
-                    main.LoadHangHoa();
                     LoadData();
                 }
             }
@@ -182,7 +176,6 @@ namespace QuanLyBanHang
             int id = Convert.ToInt32(txtIDMatHang.Text);
             if (HangHoaBUS.Instance.DelCategory(id) > 0)
             {
-                main.LoadHangHoa();
                 LoadData();
                 Clear();
             }
@@ -194,7 +187,6 @@ namespace QuanLyBanHang
             int id = Convert.ToInt32(txtIDMatHang.Text);
             if (HangHoaBUS.Instance.EditCategory(hangHoa, id) > 0)
             {
-                main.LoadHangHoa();
                 LoadData();
             }
         }

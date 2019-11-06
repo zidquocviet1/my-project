@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\AccountBUS.cs" />
     <Compile Include="BUS\HangHoaBUS.cs" />
     <Compile Include="BUS\KhachHangBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
@@ -57,11 +58,23 @@
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="BUS\LoginBUS.cs" />
     <Compile Include="DTO\NhanVien.cs" />
+    <Compile Include="fAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAccount.Designer.cs">
+      <DependentUpon>fAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="fHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fHangHoa.Designer.cs">
       <DependentUpon>fHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fHoaDon.Designer.cs">
+      <DependentUpon>fHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="fKhachHang.cs">
       <SubType>Form</SubType>
@@ -87,6 +100,12 @@
     <Compile Include="fNhanVien.Designer.cs">
       <DependentUpon>fNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="fPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPassword.Designer.cs">
+      <DependentUpon>fPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="fProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,10 +118,17 @@
     <Compile Include="fRegister.Designer.cs">
       <DependentUpon>fRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="HoaDonBUS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fAccount.resx">
+      <DependentUpon>fAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fHangHoa.resx">
       <DependentUpon>fHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fHoaDon.resx">
+      <DependentUpon>fHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fKhachHang.resx">
       <DependentUpon>fKhachHang.cs</DependentUpon>
@@ -115,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fNhanVien.resx">
       <DependentUpon>fNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fPassword.resx">
+      <DependentUpon>fPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fProfile.resx">
       <DependentUpon>fProfile.cs</DependentUpon>
@@ -189,6 +218,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\profile-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change-password.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

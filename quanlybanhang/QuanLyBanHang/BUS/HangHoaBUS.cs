@@ -26,7 +26,7 @@ namespace QuanLyBanHang.BUS
         public DataTable LoadData()
         {
             string query = "select * from mat_hang";
-            DataTable db = DataAccess.Instance.LoadCategoryList(query);
+            DataTable db = DataAccess.Instance.LoadData(query);
 
             return db;
         }

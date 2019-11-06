@@ -36,5 +36,15 @@ namespace QuanLyBanHang
             if (chkFemale.Checked == false)
                 chkMale.Enabled = true;
         }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace QuanLyBanHang.BUS
         {
             string query = "select * from khach_hang";
 
-            DataTable db = DataAccess.Instance.LoadCustomerList(query);
+            DataTable db = DataAccess.Instance.LoadData(query);
             return db;
         }
 
