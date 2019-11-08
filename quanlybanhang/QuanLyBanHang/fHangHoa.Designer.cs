@@ -49,7 +49,6 @@
             this.rtbGhiChu = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtImagePath = new System.Windows.Forms.TextBox();
-            this.pcbImage = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.nudSoLuong = new System.Windows.Forms.NumericUpDown();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -57,9 +56,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtIDLoaiHang = new System.Windows.Forms.TextBox();
+            this.pcbImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHangHoa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // btnUnSelect
@@ -169,9 +169,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label5.Location = new System.Drawing.Point(233, 44);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 15);
+            this.label5.Size = new System.Drawing.Size(72, 15);
             this.label5.TabIndex = 43;
-            this.label5.Text = "Mã Công Ty: ";
+            this.label5.Text = "Mã công ty: ";
             // 
             // label4
             // 
@@ -211,7 +211,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(238, 10);
+            this.label1.Location = new System.Drawing.Point(242, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(235, 24);
             this.label1.TabIndex = 39;
@@ -244,6 +244,10 @@
             // 
             // rtbGhiChu
             // 
+            this.rtbGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbGhiChu.ForeColor = System.Drawing.Color.DarkGray;
             this.rtbGhiChu.Location = new System.Drawing.Point(332, 138);
             this.rtbGhiChu.Name = "rtbGhiChu";
             this.rtbGhiChu.Size = new System.Drawing.Size(127, 26);
@@ -267,15 +271,6 @@
             this.txtImagePath.Name = "txtImagePath";
             this.txtImagePath.Size = new System.Drawing.Size(137, 20);
             this.txtImagePath.TabIndex = 7;
-            // 
-            // pcbImage
-            // 
-            this.pcbImage.Location = new System.Drawing.Point(532, 76);
-            this.pcbImage.Name = "pcbImage";
-            this.pcbImage.Size = new System.Drawing.Size(174, 87);
-            this.pcbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbImage.TabIndex = 62;
-            this.pcbImage.TabStop = false;
             // 
             // btnExit
             // 
@@ -334,9 +329,9 @@
             this.label10.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label10.Location = new System.Drawing.Point(233, 77);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 15);
+            this.label10.Size = new System.Drawing.Size(85, 15);
             this.label10.TabIndex = 64;
-            this.label10.Text = "Mã Loại Hàng: ";
+            this.label10.Text = "Mã loại hàng: ";
             // 
             // txtIDLoaiHang
             // 
@@ -345,6 +340,15 @@
             this.txtIDLoaiHang.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtIDLoaiHang.Size = new System.Drawing.Size(127, 20);
             this.txtIDLoaiHang.TabIndex = 65;
+            // 
+            // pcbImage
+            // 
+            this.pcbImage.Location = new System.Drawing.Point(532, 76);
+            this.pcbImage.Name = "pcbImage";
+            this.pcbImage.Size = new System.Drawing.Size(174, 87);
+            this.pcbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbImage.TabIndex = 62;
+            this.pcbImage.TabStop = false;
             // 
             // fHangHoa
             // 
@@ -389,8 +393,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Danh Mục Hàng Hóa";
             ((System.ComponentModel.ISupportInitialize)(this.dgvHangHoa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

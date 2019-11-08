@@ -18,10 +18,9 @@ namespace QuanLyBanHang.BUS
 
         public DataTable searchWithUserName(string userName)
         {
-            string query = "select * from Account where username = @userName";
-            SqlParameter para = new SqlParameter("@userName", userName);
+            string query = "select * from Account where username = " + userName;
 
-            return DataAccess.Instance.searchData(query, para);
+            return DataAccess.Instance.ExecuteQuery(query);
         }
     }
 }

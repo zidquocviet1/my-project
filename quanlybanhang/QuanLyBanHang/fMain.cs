@@ -18,13 +18,14 @@ namespace QuanLyBanHang
         {
             InitializeComponent();
             this.type = type;
-            if (type == 1)
-            {
-                menuTaiKhoan.Enabled = false;
-            }
         }
         public int type { get; set; }
         #region Events
+        private void MenuNhaCC_Click(object sender, EventArgs e)
+        {
+            fNhaCungCap nhaCC = new fNhaCungCap();
+            nhaCC.ShowDialog();
+        }
         private void DanhSáchHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fHoaDon hoaDon = new fHoaDon();
@@ -50,6 +51,12 @@ namespace QuanLyBanHang
 
         private void FMain_Load(object sender, EventArgs e)
         {
+            if (this.type == 1)
+            {
+                menuNhanVien.Enabled = false;
+                menuTaiKhoan.Enabled = false;
+                menuNhaCC.Enabled = false;
+            }
             LoadHangHoa();
         }
 
@@ -93,6 +100,14 @@ namespace QuanLyBanHang
         {
             MessageBox.Show("Liên Hệ Mai Quốc Việt: " + "51800954" + " hoặc Trương Văn Long", "Trợ Giúp", MessageBoxButtons.OK);
         }
+        private void Btn_Click(object sender, EventArgs e)
+        {
+
+            ListViewItem lsvItem = new ListViewItem("mai quoc viet");
+            lsvItem.SubItems.Add("100000");
+
+            lsvHoaDon.Items.Add(lsvItem);
+        }
         #endregion
 
         #region Methods
@@ -106,6 +121,7 @@ namespace QuanLyBanHang
 
                 btn.Text = hangHoa.name + Environment.NewLine + hangHoa.gia + Environment.NewLine + hangHoa.ghiChu;
                 btn.Font = new Font("Segoe UI", 11f);
+                btn.Click += Btn_Click;
 
                 switch (hangHoa.ghiChu)
                 {
@@ -119,9 +135,6 @@ namespace QuanLyBanHang
                 flpHangHoa.Controls.Add(btn);
             }
         }
-
-
-
         #endregion
 
 

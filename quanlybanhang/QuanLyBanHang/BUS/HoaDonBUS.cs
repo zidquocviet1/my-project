@@ -18,10 +18,9 @@ namespace QuanLyBanHang
 
         public DataTable searchWithID(int id)
         {
-            string query = "select * from hoa_don where id = @id";
-            SqlParameter para = new SqlParameter("@id", id);
+            string query = "select * from hoa_don where id = " + id;
 
-            return DataAccess.Instance.searchData(query, para);
+            return DataAccess.Instance.ExecuteQuery(query);
         }
     }
 }

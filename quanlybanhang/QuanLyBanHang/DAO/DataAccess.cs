@@ -100,16 +100,6 @@ namespace QuanLyBanHang.DAO
                 return true;
             return false;
         }
-        public DataTable searchData(string query, SqlParameter para)
-        {
-            SqlCommand cmd = getCMD(query);
-            cmd.Parameters.Add(para);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable data = new DataTable();
-            adapter.Fill(data);
-
-            return data;
-        }
 
     }
 }

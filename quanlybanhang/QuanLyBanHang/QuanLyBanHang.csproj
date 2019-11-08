@@ -50,6 +50,7 @@
     <Compile Include="BUS\AccountBUS.cs" />
     <Compile Include="BUS\HangHoaBUS.cs" />
     <Compile Include="BUS\KhachHangBUS.cs" />
+    <Compile Include="BUS\NhaCungCapBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
     <Compile Include="BUS\SignupBUS.cs" />
     <Compile Include="DAO\DataAccess.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="DTO\HangHoaDTO.cs" />
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="BUS\LoginBUS.cs" />
+    <Compile Include="DTO\NhaCungCapDTO.cs" />
     <Compile Include="DTO\NhanVien.cs" />
     <Compile Include="fAccount.cs">
       <SubType>Form</SubType>
@@ -100,6 +102,12 @@
     <Compile Include="fNhanVien.Designer.cs">
       <DependentUpon>fNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="fNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fNhaCungCap.Designer.cs">
+      <DependentUpon>fNhaCungCap.cs</DependentUpon>
+    </Compile>
     <Compile Include="fPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,7 +126,7 @@
     <Compile Include="fRegister.Designer.cs">
       <DependentUpon>fRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="HoaDonBUS.cs" />
+    <Compile Include="BUS\HoaDonBUS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fAccount.resx">
@@ -138,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fNhaCungCap.resx">
+      <DependentUpon>fNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fNhanVien.resx">
       <DependentUpon>fNhanVien.cs</DependentUpon>
