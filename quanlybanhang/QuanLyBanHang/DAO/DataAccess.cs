@@ -100,6 +100,5 @@ namespace QuanLyBanHang.DAO
                 return true;
             return false;
         }
-
     }
 }

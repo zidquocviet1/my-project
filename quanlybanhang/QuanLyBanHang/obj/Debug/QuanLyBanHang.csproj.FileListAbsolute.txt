@@ -5,7 +5,6 @@ E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fNhanVien.resources
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.Properties.Resources.resources
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.csproj.GenerateResource.cache
-E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.csproj.CoreCompileInputs.cache
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.exe
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.pdb
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.csprojAssemblyReference.cache

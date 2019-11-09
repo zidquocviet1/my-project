@@ -87,7 +87,8 @@ namespace QuanLyBanHang
             string phoneNumber = mskPhoneNumber.Text;
             int bonus = Convert.ToInt32(cbOTMoney.Text);
             double salary = Convert.ToDouble(mskSalary.Text);
-
+            if (salary < 0)
+                salary = 0;
             NhanVien nv = new NhanVien(name, isMale, birthDay, dayOfWork, address, phoneNumber, salary, bonus);
             return nv;
 

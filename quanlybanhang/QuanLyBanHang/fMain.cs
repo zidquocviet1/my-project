@@ -1,4 +1,5 @@
 ﻿using QuanLyBanHang.BUS;
+using QuanLyBanHang.DAO;
 using QuanLyBanHang.DTO;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,13 @@ namespace QuanLyBanHang
 {
     public partial class fMain : Form
     {
+        public int type { get; set; }
+        public static float TotalPrice = 0;
         public fMain(int type)
         {
             InitializeComponent();
             this.type = type;
         }
-        public int type { get; set; }
         #region Events
         private void MenuNhaCC_Click(object sender, EventArgs e)
         {
@@ -102,15 +104,76 @@ namespace QuanLyBanHang
         }
         private void Btn_Click(object sender, EventArgs e)
         {
-
-            ListViewItem lsvItem = new ListViewItem("mai quoc viet");
-            lsvItem.SubItems.Add("100000");
-
-            lsvHoaDon.Items.Add(lsvItem);
+            int id = ((sender as Button).Tag as HangHoaDTO).idMatHang;
+            ShowInfo(id);
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            nudSoLuong.Visible = true;
+            btnOK.Visible = true;
+        }
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            int soLuong = Convert.ToInt32(nudSoLuong.Value);
+            nudSoLuong.Visible = false;
+            nudSoLuong.Value = 0;
+            btnOK.Visible = false;
+        }
+        private void lsvHoaDon_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            //int index = e.ItemIndex;
+            //if (index < 0 || index >= lsvHoaDon.Items.Count)
+            //    return;
+            //nudSoLuong.Value = Convert.ToDecimal(lsvHoaDon.SelectedItems[index].SubItems[2].Text);
+        }
+        private void txtTienKhach_TextChanged(object sender, EventArgs e)
+        {
+            float tienThoi = (float)Convert.ToDouble(txtTienKhach.Text) - (float)Convert.ToDouble(txtTongCong.Text);
+            txtTienThoi.Text = tienThoi.ToString();
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int phanTram = Convert.ToInt32(cbKhuyenMai.Text);
+            float tongTien = 0;
+            if (phanTram > 0)
+            {
+                tongTien = (float)Convert.ToDouble(txtTongCong.Text) - ((float)Convert.ToDouble(txtTongCong.Text) * phanTram) / 100;
+                txtTongCong.Text = tongTien.ToString();
+            }
+            else
+            {
+                txtTongCong.Text = TotalPrice.ToString();
+            }
         }
         #endregion
 
         #region Methods
+        void ShowInfo(int id)
+        {
+            DataTable data = DataAccess.Instance.ExecuteQuery("select * from mat_hang where id_mat_hang = " + id);
+            float tongTien = 0;
+            cbKhuyenMai.Text = "0";
+
+            for (int i = 0; i < lsvHoaDon.Items.Count; i++)
+            {
+                if (data.Rows[0][1].Equals(lsvHoaDon.Items[i].Text))
+                    return;
+            }
+
+            ListViewItem lsvItem = new ListViewItem(data.Rows[0][1].ToString());
+            lsvItem.SubItems.Add(data.Rows[0][6].ToString());
+            lsvItem.SubItems.Add("6");
+            lsvItem.SubItems.Add("100000");
+           
+            lsvHoaDon.Items.Add(lsvItem);
+            for (int i = 0; i < lsvHoaDon.Items.Count; i++)
+            {
+                tongTien += (float)Convert.ToDouble(lsvItem.SubItems[3].Text);
+            }
+            txtTongCong.Text = tongTien.ToString();
+            TotalPrice = tongTien;
+        }
+        
         public void LoadHangHoa()
         {
             List<HangHoaDTO> hangHoaList = HangHoaBUS.Instance.LoadHangHoa();
@@ -121,6 +184,7 @@ namespace QuanLyBanHang
 
                 btn.Text = hangHoa.name + Environment.NewLine + hangHoa.gia + Environment.NewLine + hangHoa.ghiChu;
                 btn.Font = new Font("Segoe UI", 11f);
+                btn.Tag = hangHoa;
                 btn.Click += Btn_Click;
 
                 switch (hangHoa.ghiChu)
@@ -135,8 +199,10 @@ namespace QuanLyBanHang
                 flpHangHoa.Controls.Add(btn);
             }
         }
-        #endregion
-
+        private void lsvHoaDon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
 
     }
 }
+#endregion
