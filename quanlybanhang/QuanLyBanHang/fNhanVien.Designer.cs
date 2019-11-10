@@ -191,6 +191,7 @@
             this.dgvEmployee.Location = new System.Drawing.Point(12, 162);
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.ReadOnly = true;
+            this.dgvEmployee.RowHeadersVisible = false;
             this.dgvEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmployee.Size = new System.Drawing.Size(694, 194);
             this.dgvEmployee.TabIndex = 15;

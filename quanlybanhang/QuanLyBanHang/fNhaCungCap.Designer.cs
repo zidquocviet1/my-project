@@ -60,6 +60,7 @@
             this.dgvNhaCC.Location = new System.Drawing.Point(12, 166);
             this.dgvNhaCC.Name = "dgvNhaCC";
             this.dgvNhaCC.ReadOnly = true;
+            this.dgvNhaCC.RowHeadersVisible = false;
             this.dgvNhaCC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNhaCC.Size = new System.Drawing.Size(694, 194);
             this.dgvNhaCC.TabIndex = 54;

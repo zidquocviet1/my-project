@@ -66,10 +66,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTienThoi = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnThanhToan = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSoLuong = new System.Windows.Forms.Button();
             this.nudSoLuong = new System.Windows.Forms.NumericUpDown();
             this.btnOK = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -270,22 +270,21 @@
             this.lsvHoaDon.UseCompatibleStateImageBehavior = false;
             this.lsvHoaDon.View = System.Windows.Forms.View.Details;
             this.lsvHoaDon.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lsvHoaDon_ItemSelectionChanged);
-            this.lsvHoaDon.SelectedIndexChanged += new System.EventHandler(this.lsvHoaDon_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Tên Hàng";
-            this.columnHeader1.Width = 118;
+            this.columnHeader1.Width = 147;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Giá";
-            this.columnHeader2.Width = 52;
+            this.columnHeader2.Width = 58;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Số Lượng";
-            this.columnHeader3.Width = 78;
+            this.columnHeader3.Width = 40;
             // 
             // columnHeader4
             // 
@@ -304,9 +303,11 @@
             // 
             // txtTongCong
             // 
-            this.txtTongCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTongCong.Enabled = false;
+            this.txtTongCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTongCong.Location = new System.Drawing.Point(592, 323);
             this.txtTongCong.Name = "txtTongCong";
+            this.txtTongCong.ReadOnly = true;
             this.txtTongCong.Size = new System.Drawing.Size(225, 22);
             this.txtTongCong.TabIndex = 6;
             // 
@@ -322,7 +323,8 @@
             // 
             // txtTienKhach
             // 
-            this.txtTienKhach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTienKhach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTienKhach.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.txtTienKhach.Location = new System.Drawing.Point(592, 350);
             this.txtTienKhach.Name = "txtTienKhach";
             this.txtTienKhach.Size = new System.Drawing.Size(225, 22);
@@ -386,56 +388,62 @@
             // 
             // txtTienThoi
             // 
-            this.txtTienThoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTienThoi.Enabled = false;
+            this.txtTienThoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTienThoi.Location = new System.Drawing.Point(592, 405);
             this.txtTienThoi.Name = "txtTienThoi";
+            this.txtTienThoi.ReadOnly = true;
             this.txtTienThoi.Size = new System.Drawing.Size(225, 22);
             this.txtTienThoi.TabIndex = 12;
+            this.txtTienThoi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // button1
+            // btnThanhToan
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(727, 433);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 32);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Thanh toán";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThanhToan.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnThanhToan.Location = new System.Drawing.Point(727, 433);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(90, 32);
+            this.btnThanhToan.TabIndex = 13;
+            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
             // btnClear
             // 
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClear.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnClear.Location = new System.Drawing.Point(646, 433);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 32);
             this.btnClear.TabIndex = 14;
             this.btnClear.Text = "Hủy Bỏ";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // button2
+            // btnDelete
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(565, 433);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Xóa";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnDelete.Location = new System.Drawing.Point(565, 433);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 32);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // button3
+            // btnSoLuong
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(484, 433);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 32);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Số Lượng";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnSoLuong.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSoLuong.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnSoLuong.Location = new System.Drawing.Point(484, 433);
+            this.btnSoLuong.Name = "btnSoLuong";
+            this.btnSoLuong.Size = new System.Drawing.Size(75, 32);
+            this.btnSoLuong.TabIndex = 16;
+            this.btnSoLuong.Text = "Số Lượng";
+            this.btnSoLuong.UseVisualStyleBackColor = true;
+            this.btnSoLuong.Click += new System.EventHandler(this.button3_Click);
             // 
             // nudSoLuong
             // 
@@ -465,10 +473,10 @@
             this.ClientSize = new System.Drawing.Size(829, 477);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.nudSoLuong);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnSoLuong);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.txtTienThoi);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -534,14 +542,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTienThoi;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnSoLuong;
         private System.Windows.Forms.NumericUpDown nudSoLuong;
         private System.Windows.Forms.Button btnOK;
     }

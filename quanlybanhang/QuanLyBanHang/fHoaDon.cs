@@ -28,6 +28,8 @@ namespace QuanLyBanHang
             dgvHoaDon.Columns[0].HeaderText = "ID";
             dgvHoaDon.Columns[1].HeaderText = "Ngày Xuất";
             dgvHoaDon.Columns[2].HeaderText = "Trạng Thái";
+            dgvHoaDon.Columns[0].Width = 30;
+            dgvHoaDon.Columns[1].Width = 70;
         }
 
         private void TxtID_Leave(object sender, EventArgs e)

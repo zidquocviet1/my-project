@@ -103,6 +103,7 @@
             this.dgvHangHoa.Location = new System.Drawing.Point(12, 171);
             this.dgvHangHoa.Name = "dgvHangHoa";
             this.dgvHangHoa.ReadOnly = true;
+            this.dgvHangHoa.RowHeadersVisible = false;
             this.dgvHangHoa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHangHoa.Size = new System.Drawing.Size(694, 194);
             this.dgvHangHoa.TabIndex = 53;

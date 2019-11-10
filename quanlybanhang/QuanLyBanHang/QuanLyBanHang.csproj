@@ -52,6 +52,7 @@
     <Compile Include="BUS\KhachHangBUS.cs" />
     <Compile Include="BUS\NhaCungCapBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
+    <Compile Include="BUS\PasswordBUS.cs" />
     <Compile Include="BUS\SignupBUS.cs" />
     <Compile Include="DAO\DataAccess.cs" />
     <Compile Include="DTO\AccountDTO.cs" />
@@ -235,6 +236,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\change-password.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\username-2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

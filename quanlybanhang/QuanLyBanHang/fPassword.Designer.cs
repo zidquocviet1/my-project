@@ -63,6 +63,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(190, 16);
             this.txtConfirmPassword.TabIndex = 27;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -84,6 +85,7 @@
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(190, 16);
             this.txtNewPassword.TabIndex = 25;
+            this.txtNewPassword.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -116,6 +118,7 @@
             this.txtCurrentPassword.Name = "txtCurrentPassword";
             this.txtCurrentPassword.Size = new System.Drawing.Size(190, 16);
             this.txtCurrentPassword.TabIndex = 22;
+            this.txtCurrentPassword.UseSystemPasswordChar = true;
             // 
             // panel1
             // 
@@ -177,6 +180,7 @@
             this.btnSave.TabIndex = 32;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // fPassword
             // 

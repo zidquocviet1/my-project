@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.userIcon = new System.Windows.Forms.PictureBox();
             this.passwordIcon = new System.Windows.Forms.PictureBox();
@@ -42,7 +43,6 @@
             this.pbUsername = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.userIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPassword)).BeginInit();
@@ -56,7 +56,7 @@
             this.txtUsername.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.Color.DarkGray;
+            this.txtUsername.ForeColor = System.Drawing.Color.DimGray;
             this.txtUsername.Location = new System.Drawing.Point(442, 190);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(162, 21);
@@ -124,6 +124,20 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Here";
             // 
+            // txtPassword
+            // 
+            this.txtPassword.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
+            this.txtPassword.Location = new System.Drawing.Point(442, 265);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(162, 20);
+            this.txtPassword.TabIndex = 4;
+            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Enter += new System.EventHandler(this.TxtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.TxtPassword_Leave);
+            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -139,10 +153,10 @@
             // 
             // userIcon
             // 
-            this.userIcon.Image = global::QuanLyBanHang.Properties.Resources.username1;
+            this.userIcon.Image = global::QuanLyBanHang.Properties.Resources.username_2;
             this.userIcon.Location = new System.Drawing.Point(410, 188);
             this.userIcon.Name = "userIcon";
-            this.userIcon.Size = new System.Drawing.Size(26, 26);
+            this.userIcon.Size = new System.Drawing.Size(24, 24);
             this.userIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.userIcon.TabIndex = 12;
             this.userIcon.TabStop = false;
@@ -150,9 +164,9 @@
             // passwordIcon
             // 
             this.passwordIcon.Image = global::QuanLyBanHang.Properties.Resources.password;
-            this.passwordIcon.Location = new System.Drawing.Point(410, 262);
+            this.passwordIcon.Location = new System.Drawing.Point(410, 263);
             this.passwordIcon.Name = "passwordIcon";
-            this.passwordIcon.Size = new System.Drawing.Size(26, 26);
+            this.passwordIcon.Size = new System.Drawing.Size(24, 24);
             this.passwordIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.passwordIcon.TabIndex = 11;
             this.passwordIcon.TabStop = false;
@@ -198,20 +212,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.DarkGray;
-            this.txtPassword.Location = new System.Drawing.Point(442, 265);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(162, 20);
-            this.txtPassword.TabIndex = 4;
-            this.txtPassword.UseSystemPasswordChar = true;
-            this.txtPassword.Enter += new System.EventHandler(this.TxtPassword_Enter);
-            this.txtPassword.Leave += new System.EventHandler(this.TxtPassword_Leave);
             // 
             // fLogin
             // 
