@@ -88,6 +88,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.danhMụcToolStripMenuItem,
             this.hóaĐơnToolStripMenuItem,
@@ -248,6 +249,7 @@
             // flpHangHoa
             // 
             this.flpHangHoa.AutoScroll = true;
+            this.flpHangHoa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.flpHangHoa.Location = new System.Drawing.Point(12, 27);
             this.flpHangHoa.Name = "flpHangHoa";
             this.flpHangHoa.Size = new System.Drawing.Size(466, 438);
@@ -263,7 +265,7 @@
             this.lsvHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvHoaDon.FullRowSelect = true;
             this.lsvHoaDon.HideSelection = false;
-            this.lsvHoaDon.Location = new System.Drawing.Point(484, 27);
+            this.lsvHoaDon.Location = new System.Drawing.Point(484, 30);
             this.lsvHoaDon.Name = "lsvHoaDon";
             this.lsvHoaDon.Size = new System.Drawing.Size(333, 290);
             this.lsvHoaDon.TabIndex = 4;
@@ -470,6 +472,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(829, 477);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.nudSoLuong);

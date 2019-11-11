@@ -68,6 +68,7 @@ namespace QuanLyBanHang
                 menuNhaCC.Enabled = false;
             }
             LoadHangHoa();
+            txtTienKhach.Enabled = false;
             btnClear.Enabled = false;
             btnSoLuong.Enabled = false;
             btnDelete.Enabled = false;
@@ -145,6 +146,14 @@ namespace QuanLyBanHang
             {
                 txtTienThoi.Text = (Convert.ToDouble(txtTienKhach.Text) - tongTien).ToString("c", culture);
             }
+            if (tongTien == 0)
+            {
+                txtTienKhach.Enabled = false;
+            }
+            else
+            {
+                txtTienKhach.Enabled = true;
+            }
             TotalPrice = tongTien;
 
             lsvHoaDon.SelectedItems.Clear();
@@ -189,10 +198,6 @@ namespace QuanLyBanHang
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
-            nudSoLuong.Visible = false;
-            btnOK.Visible = false;
-            btnSoLuong.Enabled = false;
-            btnDelete.Enabled = false;
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -273,15 +278,32 @@ namespace QuanLyBanHang
             {
                 txtTienThoi.Text = (Convert.ToDouble(txtTienKhach.Text) - tongTien).ToString("c",culture);
             }
+            if (lsvHoaDon.Items.Count == 0)
+            {
+                txtTienKhach.Enabled = false;
+                btnClear.Enabled = false;
+            }
             TotalPrice = tongTien;
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            if (txtTongCong.Text.Equals(""))
+            {
+                return;
+            }
             if (MessageBox.Show("Bạn có thực sự muốn thanh toán không?","Thông Báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Clear();
                 btnClear.Enabled = false;
-                MessageBox.Show("Đang tạo trigger trong sql để bắt sự kiện thanh toán");
+                txtTienKhach.Enabled = false;
+                if (HoaDonBUS.Instance.addHoaDon(TotalPrice) > 0)
+                {
+                    MessageBox.Show("Thanh toan thanh cong");
+                }
+                else
+                {
+                    MessageBox.Show("Thanh toan that bai");
+                }
             }
         }
         #endregion
@@ -305,6 +327,12 @@ namespace QuanLyBanHang
             txtTienThoi.Text = "";
             cbKhuyenMai.Text = "0";
             txtTongCong.Text = "";
+            txtTienKhach.Enabled = false;
+            btnClear.Enabled = false;
+            nudSoLuong.Visible = false;
+            btnOK.Visible = false;
+            btnSoLuong.Enabled = false;
+            btnDelete.Enabled = false;
         }
         private void ShowInfo(int id)
         {
@@ -333,6 +361,7 @@ namespace QuanLyBanHang
                     }
                     TotalPrice = tongTien;
                     txtTongCong.Text = tongTien.ToString();
+                    txtTienKhach.Enabled = true;
                     return;
                 }
             }
@@ -348,6 +377,7 @@ namespace QuanLyBanHang
             {
                 tongTien += Convert.ToDouble(lsvHoaDon.Items[i].SubItems[3].Text);
             }
+            txtTienKhach.Enabled = true;
             TotalPrice = tongTien;
             txtTongCong.Text = tongTien.ToString();
             btnClear.Enabled = true;
@@ -369,10 +399,10 @@ namespace QuanLyBanHang
                 switch (hangHoa.ghiChu)
                 {
                     case "Còn hàng":
-                        btn.BackColor = Color.Azure;
+                        btn.BackColor = Color.LightGreen;
                         break;
                     default:
-                        btn.BackColor = Color.LightPink;
+                        btn.BackColor = Color.MediumVioletRed;
                         break;
                 }
                 flpHangHoa.Controls.Add(btn);

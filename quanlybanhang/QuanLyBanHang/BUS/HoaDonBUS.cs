@@ -22,5 +22,19 @@ namespace QuanLyBanHang
 
             return DataAccess.Instance.ExecuteQuery(query);
         }
+        public int addHoaDon(double totalPrice)
+        {
+            int status;
+            DateTime now = DateTime.Now;
+            string query = "insert into hoa_don values(@now,@status,@totalprice)";
+            SqlParameter para1 = new SqlParameter("@now", now.ToShortDateString());
+            SqlParameter para2 = new SqlParameter("@status", "Thanh toán bằng tiền mặt");
+            SqlParameter para3 = new SqlParameter("@totalprice", totalPrice);
+            SqlParameter[] parameters = { para1, para2, para3 };
+
+            status = DataAccess.Instance.ExecuteNonQuery(query, parameters);
+
+            return status;
+        }
     }
 }
