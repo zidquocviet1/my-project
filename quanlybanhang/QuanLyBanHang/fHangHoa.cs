@@ -15,14 +15,15 @@ namespace QuanLyBanHang
 {
     public partial class fHangHoa : Form
     {
-        public fHangHoa()
+        fMain main;
+        public fHangHoa(fMain main)
         {
             InitializeComponent();
             LoadData();
             ChangeHeader();
             LoadFirstCell();
+            this.main = main;
         }
-
         private void LoadFirstCell()
         {
             ChangeState(0);
@@ -72,6 +73,31 @@ namespace QuanLyBanHang
             dgvHangHoa.Columns[7].HeaderText = "Đường Dẫn Ảnh";
             dgvHangHoa.Columns[8].HeaderText = "Ghi Chú";
         }
+        private void Clear()
+        {
+            txtIDMatHang.Text = "";
+            txtIDLoaiHang.Text = "";
+            txtIDCongTy.Text = "";
+            nudSoLuong.Value = 0;
+            cbDonViTinh.Text = "";
+            txtGiaBan.Text = "";
+            txtImagePath.Text = "";
+            txtName.Text = "";
+            pcbImage.Image = null;
+            rtbGhiChu.Text = "";
+            btnDelete.Enabled = false;
+            btnAdd.Enabled = true;
+            btnUnSelect.Enabled = false;
+            btnEdit.Enabled = false;
+            dgvHangHoa.ClearSelection();
+        }
+        private void RefreshFlowLayoutPannel()
+        {
+            
+            main.ClearFlow();
+            main.LoadHangHoa();
+        }
+        #region Events
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -108,24 +134,7 @@ namespace QuanLyBanHang
             }
         }
 
-        private void Clear()
-        {
-            txtIDMatHang.Text = "";
-            txtIDLoaiHang.Text = "";
-            txtIDCongTy.Text = "";
-            nudSoLuong.Value = 0;
-            cbDonViTinh.Text = "";
-            txtGiaBan.Text = "";
-            txtImagePath.Text = "";
-            txtName.Text = "";
-            pcbImage.Image = null;
-            rtbGhiChu.Text = "";
-            btnDelete.Enabled = false;
-            btnAdd.Enabled = true;
-            btnUnSelect.Enabled = false;
-            btnEdit.Enabled = false;
-            dgvHangHoa.ClearSelection();
-        }
+  
         private void BtnUnSelect_Click(object sender, EventArgs e)
         {
             Clear();
@@ -152,6 +161,7 @@ namespace QuanLyBanHang
                 if (HangHoaBUS.Instance.AddCategory(hangHoa) > 0)
                 {
                     LoadData();
+                    RefreshFlowLayoutPannel();
                 }
             }
         }
@@ -177,6 +187,7 @@ namespace QuanLyBanHang
             if (HangHoaBUS.Instance.DelCategory(id) > 0)
             {
                 LoadData();
+                RefreshFlowLayoutPannel();
                 Clear();
             }
         }
@@ -188,7 +199,9 @@ namespace QuanLyBanHang
             if (HangHoaBUS.Instance.EditCategory(hangHoa, id) > 0)
             {
                 LoadData();
+                RefreshFlowLayoutPannel();
             }
         }
     }
+    #endregion
 }

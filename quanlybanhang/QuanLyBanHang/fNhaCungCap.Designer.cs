@@ -54,6 +54,7 @@
             // 
             this.dgvNhaCC.AllowUserToAddRows = false;
             this.dgvNhaCC.AllowUserToDeleteRows = false;
+            this.dgvNhaCC.AllowUserToResizeRows = false;
             this.dgvNhaCC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNhaCC.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvNhaCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -61,6 +62,7 @@
             this.dgvNhaCC.Name = "dgvNhaCC";
             this.dgvNhaCC.ReadOnly = true;
             this.dgvNhaCC.RowHeadersVisible = false;
+            this.dgvNhaCC.RowTemplate.Height = 30;
             this.dgvNhaCC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNhaCC.Size = new System.Drawing.Size(694, 194);
             this.dgvNhaCC.TabIndex = 54;

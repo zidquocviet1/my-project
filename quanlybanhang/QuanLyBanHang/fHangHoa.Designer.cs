@@ -97,6 +97,7 @@
             // 
             this.dgvHangHoa.AllowUserToAddRows = false;
             this.dgvHangHoa.AllowUserToDeleteRows = false;
+            this.dgvHangHoa.AllowUserToResizeRows = false;
             this.dgvHangHoa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHangHoa.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvHangHoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -104,6 +105,7 @@
             this.dgvHangHoa.Name = "dgvHangHoa";
             this.dgvHangHoa.ReadOnly = true;
             this.dgvHangHoa.RowHeadersVisible = false;
+            this.dgvHangHoa.RowTemplate.Height = 30;
             this.dgvHangHoa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHangHoa.Size = new System.Drawing.Size(694, 194);
             this.dgvHangHoa.TabIndex = 53;

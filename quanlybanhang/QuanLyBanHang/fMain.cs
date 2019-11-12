@@ -55,7 +55,7 @@ namespace QuanLyBanHang
 
         private void HàngHóaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fHangHoa fhanghoa = new fHangHoa();
+            fHangHoa fhanghoa = new fHangHoa(this);
             fhanghoa.ShowDialog();
         }
 
@@ -66,6 +66,7 @@ namespace QuanLyBanHang
                 menuNhanVien.Enabled = false;
                 menuTaiKhoan.Enabled = false;
                 menuNhaCC.Enabled = false;
+                menuDoanhThu.Enabled = false;
             }
             LoadHangHoa();
             txtTienKhach.Enabled = false;
@@ -137,10 +138,12 @@ namespace QuanLyBanHang
             if (nudSoLuong.Value > 0)
             {
                 txtTongCong.Text = Convert.ToDouble(tongTien - (tongTien * Convert.ToInt32(cbKhuyenMai.Text) / 100)).ToString();
+                tongTien -= tongTien * Convert.ToInt32(cbKhuyenMai.Text) / 100;
             }
             else
             {
                 txtTongCong.Text = Convert.ToDouble(tongTien).ToString();
+                lsvHoaDon.SelectedItems[0].Remove();
             }
             if (!txtTienKhach.Text.Equals(""))
             {
@@ -209,6 +212,7 @@ namespace QuanLyBanHang
             {
                 tongTien = TotalPrice - (TotalPrice * phanTram / 100);
                 txtTongCong.Text = tongTien.ToString();
+                TotalPrice = tongTien;
 
                 return;
             }
@@ -216,7 +220,9 @@ namespace QuanLyBanHang
             {
                 tongTien = TotalPrice - (TotalPrice * phanTram / 100);            
                 txtTongCong.Text = tongTien.ToString();
+                TotalPrice = tongTien;
                 tienThoi = Convert.ToDouble(txtTienKhach.Text) - tongTien;
+
                 if (tienThoi < 0)
                 {
                     btnThanhToan.Enabled = false;
@@ -293,18 +299,30 @@ namespace QuanLyBanHang
             }
             if (MessageBox.Show("Bạn có thực sự muốn thanh toán không?","Thông Báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Clear();
-                btnClear.Enabled = false;
-                txtTienKhach.Enabled = false;
-                if (HoaDonBUS.Instance.addHoaDon(TotalPrice) > 0)
+                if (HoaDonBUS.Instance.addHoaDon(TotalPrice, Convert.ToInt32(cbKhuyenMai.Text)) > 0)
                 {
-                    MessageBox.Show("Thanh toan thanh cong");
+                    int idBill = HoaDonBUS.Instance.getMaxIDBill();
+
+                    foreach (ListViewItem item in lsvHoaDon.Items)
+                    {
+                        HoaDonBUS.Instance.InsertBillInfo(idBill, HoaDonBUS.Instance.getIDByName(item.Text), Convert.ToInt32(item.SubItems[2].Text));
+                        HoaDonBUS.Instance.UpdateSoLuongHang(HoaDonBUS.Instance.getIDByName(item.Text), Convert.ToInt32(item.SubItems[2].Text));
+                    }
+                    MessageBox.Show("Thanh Toán Thành Công","Thanh Toán",MessageBoxButtons.OK);
                 }
                 else
                 {
-                    MessageBox.Show("Thanh toan that bai");
+                    MessageBox.Show("Thanh Toán Thất Bại","Thanh Toán",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
+                Clear();
+                btnClear.Enabled = false;
+                txtTienKhach.Enabled = false;
             }
+        }
+        private void xemBáoCáoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fDoanhThu doanhThu = new fDoanhThu();
+            doanhThu.ShowDialog();
         }
         #endregion
 
@@ -382,6 +400,10 @@ namespace QuanLyBanHang
             txtTongCong.Text = tongTien.ToString();
             btnClear.Enabled = true;
         }
+        public void ClearFlow()
+        {
+            flpHangHoa.Controls.Clear();
+        }
         
         public void LoadHangHoa()
         {
@@ -408,7 +430,6 @@ namespace QuanLyBanHang
                 flpHangHoa.Controls.Add(btn);
             }
         }
-
     }
 }
 #endregion

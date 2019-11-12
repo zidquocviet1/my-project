@@ -67,6 +67,12 @@
     <Compile Include="fAccount.Designer.cs">
       <DependentUpon>fAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="fDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fDoanhThu.Designer.cs">
+      <DependentUpon>fDoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="fHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fAccount.resx">
       <DependentUpon>fAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fDoanhThu.resx">
+      <DependentUpon>fDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fHangHoa.resx">
       <DependentUpon>fHangHoa.cs</DependentUpon>

@@ -77,6 +77,21 @@ namespace QuanLyBanHang.DAO
 
             return data;
         }
+        public DataTable LoadDoanhThu(string query, SqlParameter[] parameters)
+        {
+            SqlCommand cmd = getCMD(query);
+            cmd.Parameters.AddRange(parameters);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+
+            return data;
+        }
+        public int ExecuteScalar(string query)
+        {
+            SqlCommand cmd = getCMD(query);
+            return (int)cmd.ExecuteScalar();
+        }
         public int getType(string query, SqlParameter para)
         {
             SqlCommand cmd = getCMD(query);
@@ -99,6 +114,13 @@ namespace QuanLyBanHang.DAO
             if (db.Rows.Count > 0)
                 return true;
             return false;
+        }
+        public int getIDByName(string query, SqlParameter para)
+        {
+            SqlCommand cmd = getCMD(query);
+            cmd.Parameters.Add(para);
+
+            return (int)cmd.ExecuteScalar();
         }
     }
 }
