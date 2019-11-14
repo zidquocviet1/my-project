@@ -309,6 +309,8 @@ namespace QuanLyBanHang
                         HoaDonBUS.Instance.UpdateSoLuongHang(HoaDonBUS.Instance.getIDByName(item.Text), Convert.ToInt32(item.SubItems[2].Text));
                     }
                     MessageBox.Show("Thanh Toán Thành Công","Thanh Toán",MessageBoxButtons.OK);
+                    ClearFlow();
+                    LoadHangHoa();
                 }
                 else
                 {

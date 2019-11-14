@@ -39,22 +39,24 @@
             // 
             this.dgvAccount.AllowUserToAddRows = false;
             this.dgvAccount.AllowUserToDeleteRows = false;
+            this.dgvAccount.AllowUserToResizeRows = false;
             this.dgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAccount.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAccount.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAccount.Location = new System.Drawing.Point(12, 12);
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.ReadOnly = true;
+            this.dgvAccount.RowHeadersVisible = false;
+            this.dgvAccount.RowTemplate.Height = 35;
             this.dgvAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAccount.Size = new System.Drawing.Size(460, 234);
+            this.dgvAccount.Size = new System.Drawing.Size(460, 254);
             this.dgvAccount.TabIndex = 0;
             // 
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.Color.DarkGray;
-            this.txtUsername.Location = new System.Drawing.Point(246, 272);
+            this.txtUsername.Location = new System.Drawing.Point(246, 276);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(145, 23);
             this.txtUsername.TabIndex = 1;
@@ -70,7 +72,7 @@
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(397, 272);
+            this.btnSearch.Location = new System.Drawing.Point(397, 276);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;

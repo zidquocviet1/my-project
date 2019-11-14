@@ -15,6 +15,7 @@ namespace QuanLyBanHang
 {
     public partial class fNhaCungCap : Form
     {
+        BindingSource bdNhaCC = new BindingSource();
         public fNhaCungCap()
         {
             InitializeComponent();
@@ -53,7 +54,15 @@ namespace QuanLyBanHang
             txtAddress.Text = address;
             mskPhoneNumber.Text = phoneNumber;
         }
-
+        private void AddBinding()
+        {
+            txtIDCongTy.DataBindings.Add(new Binding("Text", bdNhaCC.DataSource, "id_cong_ty"));
+            txtName.DataBindings.Add(new Binding("Text", bdNhaCC.DataSource, "ten_cong_ty"));
+            txtAddress.DataBindings.Add(new Binding("Text", bdNhaCC.DataSource, "dia_chi"));
+            txtEmail.DataBindings.Add(new Binding("Text", bdNhaCC.DataSource, "email"));
+            txtFax.DataBindings.Add(new Binding("Text", bdNhaCC.DataSource, "fax"));
+            mskPhoneNumber.DataBindings.Add(new Binding("Text", bdNhaCC.DataSource, "dien_thoai"));
+        }
         private bool IsNullValue()
         {
             if (txtName.Text.Equals(""))
@@ -93,7 +102,9 @@ namespace QuanLyBanHang
             LoadData();
             ChangeHeader();
             ChangeState(0);
+            //bdNhaCC.DataSource = dgvNhaCC.DataSource;
             btnAdd.Enabled = false;
+            //AddBinding();
         }
         private void DgvNhaCC_CellClick(object sender, DataGridViewCellEventArgs e)
         {

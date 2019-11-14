@@ -18,7 +18,7 @@ namespace QuanLyBanHang.BUS
 
         public DataTable searchWithUserName(string userName)
         {
-            string query = "select * from Account where username = " + userName;
+            string query = "select * from Account where username = '" + userName + "'";
 
             return DataAccess.Instance.ExecuteQuery(query);
         }
