@@ -70,5 +70,12 @@ namespace QuanLyBanHang
             }
             LoadTienTheoNgay();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fReportDoanhThu report = new fReportDoanhThu(this);
+            report.ShowDialog();
+            this.Close();
+        }
     }
 }
