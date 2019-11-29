@@ -100,3 +100,4 @@ E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\bin
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.fReportDoanhThu.resources
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\RdlCompile.cache
 E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\RdlCompile.compiled
+E:\ComputerSience_TDT\Software Architecture\DoAn\quanlybanhang\QuanLyBanHang\obj\Debug\QuanLyBanHang.ReportHoaDon.resources

@@ -31,13 +31,23 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReportDoanhThu));
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.QuanLyBanHangDataSet1 = new QuanLyBanHang.QuanLyBanHangDataSet1();
             this.USP_DoanhThuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.QuanLyBanHangDataSet1 = new QuanLyBanHang.QuanLyBanHangDataSet1();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.USP_DoanhThuTableAdapter = new QuanLyBanHang.QuanLyBanHangDataSet1TableAdapters.USP_DoanhThuTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.QuanLyBanHangDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.USP_DoanhThuBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuanLyBanHangDataSet1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // USP_DoanhThuBindingSource
+            // 
+            this.USP_DoanhThuBindingSource.DataMember = "USP_DoanhThu";
+            this.USP_DoanhThuBindingSource.DataSource = this.QuanLyBanHangDataSet1;
+            // 
+            // QuanLyBanHangDataSet1
+            // 
+            this.QuanLyBanHangDataSet1.DataSetName = "QuanLyBanHangDataSet1";
+            this.QuanLyBanHangDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -50,16 +60,6 @@
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(829, 478);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // QuanLyBanHangDataSet1
-            // 
-            this.QuanLyBanHangDataSet1.DataSetName = "QuanLyBanHangDataSet1";
-            this.QuanLyBanHangDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // USP_DoanhThuBindingSource
-            // 
-            this.USP_DoanhThuBindingSource.DataMember = "USP_DoanhThu";
-            this.USP_DoanhThuBindingSource.DataSource = this.QuanLyBanHangDataSet1;
             // 
             // USP_DoanhThuTableAdapter
             // 
@@ -79,8 +79,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Báo Cáo Doanh Thu";
             this.Load += new System.EventHandler(this.fReportDoanhThu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.QuanLyBanHangDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.USP_DoanhThuBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuanLyBanHangDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }

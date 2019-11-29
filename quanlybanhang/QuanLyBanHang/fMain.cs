@@ -297,24 +297,21 @@ namespace QuanLyBanHang
             {
                 return;
             }
-            if (MessageBox.Show("Bạn có thực sự muốn thanh toán không?","Thông Báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có muốn in hóa đơn không?","Thông Báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (HoaDonBUS.Instance.addHoaDon(TotalPrice, Convert.ToInt32(cbKhuyenMai.Text)) > 0)
                 {
                     int idBill = HoaDonBUS.Instance.getMaxIDBill();
+                    ReportHoaDon rpHoaDon = new ReportHoaDon();
 
                     foreach (ListViewItem item in lsvHoaDon.Items)
                     {
                         HoaDonBUS.Instance.InsertBillInfo(idBill, HoaDonBUS.Instance.getIDByName(item.Text), Convert.ToInt32(item.SubItems[2].Text));
                         HoaDonBUS.Instance.UpdateSoLuongHang(HoaDonBUS.Instance.getIDByName(item.Text), Convert.ToInt32(item.SubItems[2].Text));
                     }
-                    MessageBox.Show("Thanh Toán Thành Công","Thanh Toán",MessageBoxButtons.OK);
+                    rpHoaDon.ShowDialog();
                     ClearFlow();
                     LoadHangHoa();
-                }
-                else
-                {
-                    MessageBox.Show("Thanh Toán Thất Bại","Thanh Toán",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 Clear();
                 btnClear.Enabled = false;
@@ -410,7 +407,7 @@ namespace QuanLyBanHang
         public void LoadHangHoa()
         {
             List<HangHoaDTO> hangHoaList = HangHoaBUS.Instance.LoadHangHoa();
-
+            
             foreach (HangHoaDTO hangHoa in hangHoaList)
             {
                 Button btn = new Button() { Width = HangHoaBUS.HangHoaWidth, Height = HangHoaBUS.HangHoaHeight };

@@ -166,6 +166,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyBanHangDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyBanHangDataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyBanHangDataSet21.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyBanHangDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyBanHangDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportHoaDon.Designer.cs">
+      <DependentUpon>ReportHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="fAccount.resx">
       <DependentUpon>fAccount.cs</DependentUpon>
@@ -217,6 +233,10 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="ReportHoaDon.resx">
+      <DependentUpon>ReportHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -253,6 +273,28 @@
     </None>
     <None Include="QuanLyBanHangDataSet1.xss">
       <DependentUpon>QuanLyBanHangDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyBanHangDataSet21.xsc">
+      <DependentUpon>QuanLyBanHangDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyBanHangDataSet21.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyBanHangDataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyBanHangDataSet21.xss">
+      <DependentUpon>QuanLyBanHangDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyBanHangDataSet3.xsc">
+      <DependentUpon>QuanLyBanHangDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyBanHangDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyBanHangDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyBanHangDataSet3.xss">
+      <DependentUpon>QuanLyBanHangDataSet3.xsd</DependentUpon>
     </None>
     <None Include="Resources\loginform.png" />
   </ItemGroup>
