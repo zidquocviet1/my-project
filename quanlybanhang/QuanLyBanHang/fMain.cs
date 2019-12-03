@@ -210,17 +210,15 @@ namespace QuanLyBanHang
 
             if (phanTram > 0 && txtTienKhach.Text.Equals(""))
             {
+                tongTien = (float)Convert.ToDouble(txtTongCong.Text) - ((float)Convert.ToDouble(txtTongCong.Text) * phanTram) / 100;
                 tongTien = TotalPrice - (TotalPrice * phanTram / 100);
                 txtTongCong.Text = tongTien.ToString();
-                TotalPrice = tongTien;
-
                 return;
             }
             if (!txtTienKhach.Text.Equals("") && phanTram > 0)
             {
-                tongTien = TotalPrice - (TotalPrice * phanTram / 100);            
+                tongTien = TotalPrice - (TotalPrice * phanTram / 100);
                 txtTongCong.Text = tongTien.ToString();
-                TotalPrice = tongTien;
                 tienThoi = Convert.ToDouble(txtTienKhach.Text) - tongTien;
 
                 if (tienThoi < 0)
